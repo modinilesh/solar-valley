@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS sv_users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    full_name VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL UNIQUE,
+    message VARCHAR(500)
+);
