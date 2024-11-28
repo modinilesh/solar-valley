@@ -3,6 +3,7 @@ package com.solarvalley.service.impl;
 import com.solarvalley.dto.UserDTO;
 import com.solarvalley.entities.Mail;
 import com.solarvalley.entities.User;
+import com.solarvalley.exceptions.UserAlreadyExistException;
 import com.solarvalley.exceptions.UserNotFoundException;
 import com.solarvalley.repository.UserRepository;
 import com.solarvalley.service.EmailService;
@@ -57,7 +58,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(UserDTO userDTO) {
+    public User createUser(UserDTO userDTO) throws UserAlreadyExistException {
+        isExistingRecord(userDTO);
         User user = modelMapper.map(userDTO, User.class);
         User savedUser = userRepository.save(user);
         LOGGER.info("User created successfully with name: "+ savedUser.getFullName());
@@ -78,6 +80,21 @@ public class UserServiceImpl implements UserService {
             userRepository.delete(user);
         } else {
             throw new UserNotFoundException("User not found for delete with email: "+ email);
+        }
+    }
+
+    private void isExistingRecord(UserDTO userDTO) throws UserAlreadyExistException {
+        //email check
+        User userByEmail = userRepository.findByEmail(userDTO.getEmail());
+        if (userByEmail != null){
+            LOGGER.error("User already exist with email: {}", userDTO.getEmail());
+            throw new UserAlreadyExistException("We have already got your query earlier, our team will contact you soon!");
+        }
+        //phone number check
+        User userByPhoneNumber = userRepository.findByPhoneNumber(userDTO.getPhoneNumber());
+        if (userByPhoneNumber != null){
+            LOGGER.error("User already exist with phone number: {}", userDTO.getPhoneNumber());
+            throw new UserAlreadyExistException("We have already got your query earlier, our team will contact you soon!");
         }
     }
 
