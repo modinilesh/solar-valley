@@ -76,7 +76,7 @@
 <!-- Main Content -->
 <div class="min-h-screen">
     <!-- Header -->
-    <header class="fixed top-0 w-full bg-white shadow-sm z-40">
+    <header class="fixed top-0 w-full shadow-sm z-40" style="background-color: #ffdb4d;">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <button id="openSidebar" class="text-gray-600 hover:text-gray-800">
                 <i class="bi bi-list text-2xl"></i>
@@ -99,21 +99,21 @@
     <section class="pt-24 pb-12 bg-gradient-to-br from-yellow-50 to-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center justify-between">
-                <div class="lg:w-1/2 mb-8 lg:mb-0">
-                    <h1 class="text-4xl lg:text-5xl font-bold mb-4">Powering Tomorrow with Solar Solutions Today</h1>
-                    <p class="text-gray-600 mb-8">Complete solutions for solar installation, maintenance, CCTV systems,
-                        and computer sales.</p>
-                    <div class="flex gap-4">
-                        <a href="#services" class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600">Our
-                            Services</a>
-                        <a href="#contact"
-                           class="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg hover:bg-yellow-50">Get
-                            Quote</a>
+                <!-- Text and Buttons Section -->
+                <div class="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Powering Tomorrow with Solar Solutions Today</h1>
+                    <p class="text-gray-600 mb-8">Complete solutions for solar installation, maintenance, CCTV systems, and computer sales.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#services" class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 mb-4 sm:mb-0">Our Services</a>
+                        <a href="#contact" class="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg hover:bg-yellow-50">Get Quote</a>
                     </div>
                 </div>
-                <div class="lg:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800"
-                         alt="Solar Panels" class="rounded-lg shadow-lg">
+
+                <!-- Video Section -->
+                <div class="lg:w-1/2 w-full">
+                    <div class="relative w-full" style="padding-top: 56.25%; overflow: hidden;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg" src="https://www.youtube.com/embed/od5yWB5aE0c?si=KtVlgantKHF-nhiT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -349,6 +349,48 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-white py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Why Choose Solar Valley?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">
+                    <div class="mb-4">
+                        <i class="bi bi-lightning-charge text-4xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">AI-Optimized Energy</h3>
+                    <p class="text-gray-600">Maximize efficiency with AI-driven solar tracking and optimization solutions.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">
+                    <div class="mb-4">
+                        <i class="bi bi-cloud text-4xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Cloud-Based Monitoring</h3>
+                    <p class="text-gray-600">Monitor performance in real-time from anywhere with our cloud solutions.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">
+                    <div class="mb-4">
+                        <i class="bi bi-shield-check text-4xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Secure & Reliable</h3>
+                    <p class="text-gray-600">Our systems are built with industry-leading security and uptime guarantees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 " style="background-color: #ffdb4d;">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Take the Next Step?</h2>
+            <p class="text-white text-lg mb-6">Contact us today to learn more about our tailored solar solutions.</p>
+            <a href="#contact" class="bg-white text-yellow-500 px-6 py-3 rounded-lg text-lg hover:bg-yellow-50">Get in Touch</a>
         </div>
     </section>
 
