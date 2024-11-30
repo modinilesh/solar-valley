@@ -20,12 +20,20 @@ public class HomeController {
     @Value("${logoUrl}")
     private String logoUrl;
 
+    @Value("${aboutUs1}")
+    private String aboutUs1;
+
+    @Value("${aboutUs2}")
+    private String aboutUs2;
+
     @Autowired
     private UserService userService;
 
     @GetMapping("/home")
     public String home(Model model){
         model.addAttribute("logoUrl", logoUrl);
+        model.addAttribute("aboutUs1", aboutUs1);
+        model.addAttribute("aboutUs2", aboutUs2);
         return "home";
     }
 

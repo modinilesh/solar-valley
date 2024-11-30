@@ -125,48 +125,123 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-                    <i class="bi bi-sun text-4xl text-yellow-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Solar Installation</h3>
-                    <p class="text-gray-600">Professional installation of solar panels for residential and commercial
-                        properties.</p>
+                <!-- Service Card -->
+                <div
+                        class="card p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition relative overflow-hidden"
+                        onmouseover="handleMouseOver(this)"
+                        onmouseout="handleMouseOut(this)"
+                        onclick="toggleSlider(this)"
+                        style="height: 200px;"
+                >
+                    <i class="bi bi-sun text-4xl text-yellow-500 mb-2"></i>
+                    <h3 class="text-xl font-semibold mb-4 z-10 relative">Solar Installation</h3>
+                    <div
+                            class="description absolute bottom-0 left-0 w-full bg-gray-50 p-4 transform translate-y-full transition-transform duration-300"
+                            style="height: 50%;"
+                    >
+                        <p class="text-gray-600">
+                            Professional installation of solar panels for residential and commercial properties.
+                        </p>
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-                    <i class="bi bi-tools text-4xl text-yellow-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Solar Maintenance</h3>
-                    <p class="text-gray-600">Regular maintenance and repair services for optimal system performance.</p>
+                <!-- Service Card -->
+                <div
+                        class="card p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition relative overflow-hidden"
+                        onmouseover="handleMouseOver(this)"
+                        onmouseout="handleMouseOut(this)"
+                        onclick="toggleSlider(this)"
+                        style="height: 200px;"
+                >
+                    <i class="bi bi-tools text-4xl text-yellow-500 mb-2"></i>
+                    <h3 class="text-xl font-semibold mb-4 z-10 relative">Solar Maintenance</h3>
+                    <div
+                            class="description absolute bottom-0 left-0 w-full bg-gray-50 p-4 transform translate-y-full transition-transform duration-300"
+                            style="height: 50%;"
+                    >
+                        <p class="text-gray-600">
+                            Regular maintenance and repair services for optimal system performance.
+                        </p>
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-                    <i class="bi bi-camera-video text-4xl text-yellow-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">CCTV Installation</h3>
-                    <p class="text-gray-600">Security solutions with high-quality CCTV system installation.</p>
+                <!-- Service Card -->
+                <div
+                        class="card p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition relative overflow-hidden"
+                        onmouseover="handleMouseOver(this)"
+                        onmouseout="handleMouseOut(this)"
+                        onclick="toggleSlider(this)"
+                        style="height: 200px;"
+                >
+                    <i class="bi bi-camera-video text-4xl text-yellow-500 mb-2"></i>
+                    <h3 class="text-xl font-semibold mb-4 z-10 relative">CCTV Installation</h3>
+                    <div
+                            class="description absolute bottom-0 left-0 w-full bg-gray-50 p-4 transform translate-y-full transition-transform duration-300"
+                            style="height: 50%;"
+                    >
+                        <p class="text-gray-600">
+                            Security solutions with high-quality CCTV system installation.
+                        </p>
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-                    <i class="bi bi-laptop text-4xl text-yellow-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Computer Sales</h3>
-                    <p class="text-gray-600">Quality computers and accessories for all your technology needs.</p>
+                <!-- Service Card -->
+                <div
+                        class="card p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition relative overflow-hidden"
+                        onmouseover="handleMouseOver(this)"
+                        onmouseout="handleMouseOut(this)"
+                        onclick="toggleSlider(this)"
+                        style="height: 200px;"
+                >
+                    <i class="bi bi-laptop text-4xl text-yellow-500 mb-2"></i>
+                    <h3 class="text-xl font-semibold mb-4 z-10 relative">Computer Sales</h3>
+                    <div
+                            class="description absolute bottom-0 left-0 w-full bg-gray-50 p-4 transform translate-y-full transition-transform duration-300"
+                            style="height: 50%;"
+                    >
+                        <p class="text-gray-600">
+                            Quality computers and accessories for all your technology needs.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- About Section -->
     <section id="about" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">About Us</h2>
             <div class="flex flex-col lg:flex-row items-center gap-8">
-                <div class="lg:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=800"
-                         alt="About Us" class="rounded-lg shadow-lg">
+                <!-- Image Carousel -->
+                <div class="lg:w-1/2 relative">
+                    <div class="carousel rounded-lg shadow-lg overflow-hidden relative">
+                        <!-- Carousel Images -->
+                        <div class="carousel-images">
+                            <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=800"
+                                 alt="Solar Panels Installation" class="w-full h-auto hidden">
+                            <img th:src="${aboutUs1}"
+                                 alt="Solar Panel Maintenance" class="w-full h-auto hidden">
+                            <img th:src="${aboutUs2}"
+                                 alt="Team Discussion About Solar Solutions" class="w-full h-auto hidden">
+                        </div>
+                        <!-- Left and Right Navigation -->
+                        <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2"
+                                onclick="prevImage()">&#8592;</button>
+                        <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2"
+                                onclick="nextImage()">&#8594;</button>
+                    </div>
                 </div>
+
+                <!-- About Content -->
                 <div class="lg:w-1/2">
-                    <p class="text-gray-600 mb-4">Solar Valley is a leading provider of renewable energy solutions,
-                        dedicated to making sustainable energy accessible to everyone. With years of experience and a
-                        commitment to excellence, we deliver top-quality solar installations and maintenance
-                        services.</p>
-                    <p class="text-gray-600">Our team of experts ensures that every project is completed to the highest
-                        standards, providing our clients with reliable and efficient energy solutions for a greener
-                        future.</p>
+                    <p class="text-gray-600 mb-4">
+                        At <b>Solar Valley</b>, we believe in empowering communities with sustainable energy solutions. Our mission is to make renewable energy accessible, reliable, and tailored to meet the needs of homes and businesses alike.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Established with a passion for clean energy, Solar Valley has grown into a trusted partner for solar installations, maintenance, and consultation. We pride ourselves on delivering high-quality service, ensuring every project not only meets but exceeds expectations.
+                    </p>
+                    <p class="text-gray-600">
+                        From providing innovative solar solutions to building a greener tomorrow, our team of experts is here to guide you every step of the way. Join us in embracing sustainable energy for a brighter future.
+                    </p>
                 </div>
             </div>
         </div>
@@ -481,6 +556,42 @@
         hideMessage(errorMessage);
     }
 });
+    function handleMouseOver(card) {
+    const description = card.querySelector(".description");
+    description.style.transform = "translateY(0)";
+  }
+
+  function handleMouseOut(card) {
+    const description = card.querySelector(".description");
+    description.style.transform = "translateY(100%)";
+  }
+
+
+<!--    About us-->
+    let currentImageIndex = 0;
+  const images = document.querySelectorAll(".carousel-images img");
+
+  function showImage(index) {
+    images.forEach((img, i) => {
+      img.classList.toggle("hidden", i !== index);
+    });
+  }
+
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    showImage(currentImageIndex);
+  }
+
+  function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    showImage(currentImageIndex);
+  }
+
+  // Automatically change image every 10 seconds
+  setInterval(nextImage, 10000);
+
+  // Show the first image initially
+  showImage(currentImageIndex);
 
 </script>
 </body>
