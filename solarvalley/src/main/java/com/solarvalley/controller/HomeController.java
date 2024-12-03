@@ -37,6 +37,14 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/about-us")
+    public String aboutUs(Model model){
+        model.addAttribute("logoUrl", logoUrl);
+        model.addAttribute("aboutUs1", aboutUs1);
+        model.addAttribute("aboutUs2", aboutUs2);
+        return "about-us";
+    }
+
     @PostMapping("/contact-us")
     public String contactUs(@ModelAttribute("userDTO") UserDTO userDTO, RedirectAttributes redirectAttributes){
         try {

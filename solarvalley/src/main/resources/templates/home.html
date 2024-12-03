@@ -48,6 +48,51 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Animation Classes */
+        .animate-fade-in {
+          animation: fade-in 0.8s ease forwards;
+        }
+
+        /* Add delay to animations for staggered effect */
+        .delay-100 {
+          animation-delay: 0.1s;
+        }
+        .delay-300 {
+          animation-delay: 0.3s;
+        }
+
+        /* Card Hover Effect */
+        .card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Responsive Container */
+          .container {
+            max-width: 1200px;
+          }
+
+          /* Card Hover Effects */
+          .hover\:scale-105:hover {
+            transform: scale(1.05);
+          }
+
+          /* Smooth Transition for Hover */
+          .transition {
+            transition: all 0.3s ease-in-out;
+          }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -94,6 +139,19 @@
                     Us</a>
             </div>
         </div>
+        <!-- Contact Icons Section -->
+        <div class="fixed bottom-4 right-4 flex flex-col gap-4">
+            <!-- WhatsApp Icon -->
+            <a href="https://wa.me/+918319341504" target="_blank"
+               class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+                <i class="bi bi-whatsapp text-2xl"></i>
+            </a>
+            <!-- Call Icon -->
+            <a href="tel:+918319341504"
+               class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+                <i class="bi bi-telephone-fill text-2xl"></i>
+            </a>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -102,18 +160,28 @@
             <div class="flex flex-col lg:flex-row items-center justify-between">
                 <!-- Text and Buttons Section -->
                 <div class="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Powering Tomorrow with Solar Solutions Today</h1>
-                    <p class="text-gray-600 mb-8">Complete solutions for solar installation, maintenance, CCTV systems, and computer sales.</p>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Powering Tomorrow with Solar Solutions
+                        Today</h1>
+                    <p class="text-gray-600 mb-8">Complete solutions for solar installation, maintenance, CCTV systems,
+                        and computer sales.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#services" class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 mb-4 sm:mb-0">Our Services</a>
-                        <a href="#contact" class="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg hover:bg-yellow-50">Get Quote</a>
+                        <a href="#services"
+                           class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 mb-4 sm:mb-0">Our
+                            Services</a>
+                        <a href="#contact"
+                           class="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg hover:bg-yellow-50">Get
+                            Quote</a>
                     </div>
                 </div>
 
                 <!-- Video Section -->
                 <div class="lg:w-1/2 w-full">
                     <div class="relative w-full" style="padding-top: 56.25%; overflow: hidden;">
-                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg" src="https://www.youtube.com/embed/od5yWB5aE0c?si=KtVlgantKHF-nhiT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                                src="https://www.youtube.com/embed/od5yWB5aE0c?si=KtVlgantKHF-nhiT"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -207,7 +275,7 @@
 
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-50">
+    <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">About Us</h2>
             <div class="flex flex-col lg:flex-row items-center gap-8">
@@ -225,22 +293,30 @@
                         </div>
                         <!-- Left and Right Navigation -->
                         <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2"
-                                onclick="prevImage()">&#8592;</button>
+                                onclick="prevImage()">&#8592;
+                        </button>
                         <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2"
-                                onclick="nextImage()">&#8594;</button>
+                                onclick="nextImage()">&#8594;
+                        </button>
                     </div>
                 </div>
 
                 <!-- About Content -->
                 <div class="lg:w-1/2">
                     <p class="text-gray-600 mb-4">
-                        At <b>Solar Valley</b>, we believe in empowering communities with sustainable energy solutions. Our mission is to make renewable energy accessible, reliable, and tailored to meet the needs of homes and businesses alike.
+                        At <b>Solar Valley</b>, we believe in empowering communities with sustainable energy solutions.
+                        Our mission is to make renewable energy accessible, reliable, and tailored to meet the needs of
+                        homes and businesses alike.
                     </p>
                     <p class="text-gray-600 mb-4">
-                        Established with a passion for clean energy, Solar Valley has grown into a trusted partner for solar installations, maintenance, and consultation. We pride ourselves on delivering high-quality service, ensuring every project not only meets but exceeds expectations.
+                        Established with a passion for clean energy, Solar Valley has grown into a trusted partner for
+                        solar installations, maintenance, and consultation. We pride ourselves on delivering
+                        high-quality service, ensuring every project not only meets but exceeds expectations.
                     </p>
                     <p class="text-gray-600">
-                        From providing innovative solar solutions to building a greener tomorrow, our team of experts is here to guide you every step of the way. Join us in embracing sustainable energy for a brighter future.
+                        From providing innovative solar solutions to building a greener tomorrow, our team of experts is
+                        here to guide you every step of the way. Join us in embracing sustainable energy for a brighter
+                        future.
                     </p>
                 </div>
             </div>
@@ -249,29 +325,73 @@
 
     <!-- Founders Section -->
     <section id="founders" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12">Our Founders</h2>
-            <div class="scroll-container flex overflow-x-auto gap-8 pb-4">
-                <div class="scroll-item flex-none w-64">
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <div class="w-32 h-32 mx-auto mb-4 bg-gray-200 rounded-full"></div>
-                        <h3 class="text-xl font-semibold text-center mb-2">John Smith</h3>
-                        <p class="text-gray-600 text-center">CEO & Technical Director</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Founder Card -->
+                <div
+                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"
+                >
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Image Section -->
+                        <div class="md:w-1/3">
+                            <img
+                                    th:src="${logoUrl}"
+                                    alt="John Smith"
+                                    class="w-full h-full object-cover"
+                            />
+                        </div>
+                        <!-- Content Section -->
+                        <div class="p-6 flex-1">
+                            <h3 class="text-2xl font-semibold mb-2">John Smith</h3>
+                            <p class="text-sm text-yellow-500 mb-4">CEO & Technical Director</p>
+                            <p class="text-gray-600 mb-4">
+                                With over 15 years of experience in the solar and tech industry, John has successfully
+                                managed 500+ solar projects nationwide, helping countless businesses and homes transition
+                                to renewable energy.
+                            </p>
+                            <p class="text-gray-600 text-sm italic">
+                                "Empowering the world with sustainable energy solutions."
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="scroll-item flex-none w-64">
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <div class="w-32 h-32 mx-auto mb-4 bg-gray-200 rounded-full"></div>
-                        <h3 class="text-xl font-semibold text-center mb-2">Sarah Johnson</h3>
-                        <p class="text-gray-600 text-center">COO & Innovation Lead</p>
+
+                <!-- Founder Card -->
+                <div
+                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"
+                >
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Image Section -->
+                        <div class="md:w-1/3">
+                            <img
+                                    th:src="${logoUrl}"
+                                    alt="Sarah Johnson"
+                                    class="w-full h-full object-cover"
+                            />
+                        </div>
+                        <!-- Content Section -->
+                        <div class="p-6 flex-1">
+                            <h3 class="text-2xl font-semibold mb-2">Sarah Johnson</h3>
+                            <p class="text-sm text-yellow-500 mb-4">COO & Innovation Lead</p>
+                            <p class="text-gray-600 mb-4">
+                                Sarah is an innovator with a passion for clean energy solutions. She has spearheaded
+                                multiple groundbreaking initiatives, leading the company to receive several sustainability
+                                awards.
+                            </p>
+                            <p class="text-gray-600 text-sm italic">
+                                "Innovation is the key to a brighter, greener future."
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- Certifications Section -->
-    <section id="certifications" class="py-16 bg-gray-50">
+    <section id="certifications" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Our Certifications</h2>
             <div class="scroll-container flex overflow-x-auto gap-8 pb-4">
@@ -336,12 +456,14 @@
     <section id="contact" class="py-16 bg-gray-50">
         <div id="messageBox" class="max-w-2xl mx-auto mb-6">
             <!-- Success Message -->
-            <div th:if="${successMessage != null}" class="bg-green-100 border border-green-500 text-green-700 px-4 py-3 rounded mb-4" id="successMessage">
+            <div th:if="${successMessage != null}"
+                 class="bg-green-100 border border-green-500 text-green-700 px-4 py-3 rounded mb-4" id="successMessage">
                 <p th:text="${successMessage}"></p>
             </div>
 
             <!-- Error Message -->
-            <div th:if="${errorMessage != null}" class="bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded mb-4" id="errorMessage">
+            <div th:if="${errorMessage != null}"
+                 class="bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded mb-4" id="errorMessage">
                 <p th:text="${errorMessage}"></p>
             </div>
         </div>
@@ -412,7 +534,8 @@
                         <i class="bi bi-plus"></i>
                     </button>
                     <div class="faq-content hidden mt-4 text-gray-600">
-                        The cost varies based on the system size, location, and installation complexity. Contact us for a free estimate.
+                        The cost varies based on the system size, location, and installation complexity. Contact us for
+                        a free estimate.
                     </div>
                 </div>
                 <div class="border rounded-lg p-4">
@@ -421,7 +544,8 @@
                         <i class="bi bi-plus"></i>
                     </button>
                     <div class="faq-content hidden mt-4 text-gray-600">
-                        Most solar panels come with a 25-year performance warranty, ensuring their efficiency for years to come.
+                        Most solar panels come with a 25-year performance warranty, ensuring their efficiency for years
+                        to come.
                     </div>
                 </div>
             </div>
@@ -439,7 +563,8 @@
                         <i class="bi bi-lightning-charge text-4xl text-yellow-500"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">AI-Optimized Energy</h3>
-                    <p class="text-gray-600">Maximize efficiency with AI-driven solar tracking and optimization solutions.</p>
+                    <p class="text-gray-600">Maximize efficiency with AI-driven solar tracking and optimization
+                        solutions.</p>
                 </div>
                 <!-- Feature 2 -->
                 <div class="text-center p-6 bg-gray-100 rounded-lg shadow">
@@ -447,7 +572,8 @@
                         <i class="bi bi-cloud text-4xl text-yellow-500"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Cloud-Based Monitoring</h3>
-                    <p class="text-gray-600">Monitor performance in real-time from anywhere with our cloud solutions.</p>
+                    <p class="text-gray-600">Monitor performance in real-time from anywhere with our cloud
+                        solutions.</p>
                 </div>
                 <!-- Feature 3 -->
                 <div class="text-center p-6 bg-gray-100 rounded-lg shadow">
@@ -455,7 +581,8 @@
                         <i class="bi bi-shield-check text-4xl text-yellow-500"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Secure & Reliable</h3>
-                    <p class="text-gray-600">Our systems are built with industry-leading security and uptime guarantees.</p>
+                    <p class="text-gray-600">Our systems are built with industry-leading security and uptime
+                        guarantees.</p>
                 </div>
             </div>
         </div>
@@ -466,7 +593,8 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold text-white mb-4">Ready to Take the Next Step?</h2>
             <p class="text-white text-lg mb-6">Contact us today to learn more about our tailored solar solutions.</p>
-            <a href="#contact" class="bg-white text-yellow-500 px-6 py-3 rounded-lg text-lg hover:bg-yellow-50">Get in Touch</a>
+            <a href="#contact" class="bg-white text-yellow-500 px-6 py-3 rounded-lg text-lg hover:bg-yellow-50">Get in
+                Touch</a>
         </div>
     </section>
 
@@ -556,6 +684,8 @@
         hideMessage(errorMessage);
     }
 });
+
+//service cards
     function handleMouseOver(card) {
     const description = card.querySelector(".description");
     description.style.transform = "translateY(0)";
@@ -566,6 +696,18 @@
     description.style.transform = "translateY(100%)";
   }
 
+  function toggleSlider(card) {
+    // Check if the card already has the 'active' class
+    const isActive = card.classList.contains("active");
+
+    // Remove 'active' class from all cards
+    document.querySelectorAll(".card").forEach((c) => c.classList.remove("active"));
+
+    // If the card wasn't active, add the 'active' class to it
+    if (!isActive) {
+      card.classList.add("active");
+    }
+  }
 
 <!--    About us-->
     let currentImageIndex = 0;
