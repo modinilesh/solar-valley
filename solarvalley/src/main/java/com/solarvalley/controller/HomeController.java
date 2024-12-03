@@ -26,6 +26,9 @@ public class HomeController {
     @Value("${aboutUs2}")
     private String aboutUs2;
 
+    @Value("${founder1}")
+    private String founder1;
+
     @Autowired
     private UserService userService;
 
@@ -34,6 +37,7 @@ public class HomeController {
         model.addAttribute("logoUrl", logoUrl);
         model.addAttribute("aboutUs1", aboutUs1);
         model.addAttribute("aboutUs2", aboutUs2);
+        model.addAttribute("founder1", founder1);
         return "home";
     }
 
@@ -42,6 +46,7 @@ public class HomeController {
         model.addAttribute("logoUrl", logoUrl);
         model.addAttribute("aboutUs1", aboutUs1);
         model.addAttribute("aboutUs2", aboutUs2);
+        model.addAttribute("founder1", founder1);
         return "about-us";
     }
 
