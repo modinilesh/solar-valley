@@ -29,6 +29,36 @@ public class HomeController {
     @Value("${founder1}")
     private String founder1;
 
+    @Value("${hero}")
+    private String hero;
+
+    @Value("${p1}")
+    private String p1;
+
+    @Value("${p2}")
+    private String p2;
+
+    @Value("${p3}")
+    private String p3;
+
+    @Value("${p4}")
+    private String p4;
+
+    @Value("${p5}")
+    private String p5;
+
+    @Value("${p6}")
+    private String p6;
+
+    @Value("${p7}")
+    private String p7;
+
+    @Value("${p8}")
+    private String p8;
+
+    @Value("${footer}")
+    private String footer;
+
     @Autowired
     private UserService userService;
 
@@ -38,6 +68,20 @@ public class HomeController {
         model.addAttribute("aboutUs1", aboutUs1);
         model.addAttribute("aboutUs2", aboutUs2);
         model.addAttribute("founder1", founder1);
+        model.addAttribute("hero", hero);
+
+        //associated partners
+        model.addAttribute("p1", p1);
+        model.addAttribute("p2", p2);
+        model.addAttribute("p3", p3);
+        model.addAttribute("p4", p4);
+        model.addAttribute("p5", p5);
+        model.addAttribute("p6", p6);
+        model.addAttribute("p7", p7);
+        model.addAttribute("p8", p8);
+
+        //footer
+        model.addAttribute("footer", footer);
         return "home";
     }
 
@@ -47,6 +91,7 @@ public class HomeController {
         model.addAttribute("aboutUs1", aboutUs1);
         model.addAttribute("aboutUs2", aboutUs2);
         model.addAttribute("founder1", founder1);
+        model.addAttribute("hero", hero);
         return "about-us";
     }
 

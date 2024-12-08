@@ -38,6 +38,51 @@
             font-size: 0.95rem; /* Ensure the text size is readable */
         }
 
+        /* General Sidebar Styling */
+.sidebar {
+    background-color: #ffffff; /* Clean white background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 16rem; /* Fixed width for the sidebar */
+    transition: transform 0.3s ease-in-out; /* Smooth open/close transition */
+}
+
+/* Navigation Link Styles */
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    color: #4A5568; /* Cool gray text */
+    text-decoration: none;
+    font-size: 1rem; /* Comfortable font size */
+    font-weight: 500; /* Medium weight for emphasis */
+}
+
+.sidebar nav a:hover {
+    background-color: #FEF3C7; /* Light yellow hover background */
+    color: #D97706; /* Golden text on hover */
+}
+
+.sidebar nav a i {
+    transition: color 0.3s ease-in-out; /* Smooth icon color transition */
+}
+
+/* Close Button */
+#closeSidebar {
+    font-size: 1.25rem; /* Larger close icon */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Open/Close Animations */
+#sidebar.open {
+    transform: translateX(0); /* Slide in */
+}
+
+#sidebar.closed {
+    transform: translateX(-100%); /* Slide out */
+}
+
+
 
         /* Hide scrollbar for Chrome, Safari and Opera */
         .scroll-container::-webkit-scrollbar {
@@ -73,11 +118,12 @@
         .delay-300 {
           animation-delay: 0.3s;
         }
-
+<!--Services -->
         /* Card Hover Effect */
         .card:hover {
           transform: scale(1.05);
           box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+          background-color: #f5c85c;
         }
         /* Responsive Container */
           .container {
@@ -87,6 +133,7 @@
           /* Card Hover Effects */
           .hover\:scale-105:hover {
             transform: scale(1.05);
+            background-color: #f5c85c;
           }
 
            /*Smooth Transition for Hover */
@@ -103,38 +150,176 @@
             background-attachment: scroll;
         }
     }
+
+<!--        footer-->
+        @keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.animate-spin-slow {
+    animation: spin 20s linear infinite;
+}
+.bg-gradient-to-b {
+    background: linear-gradient(to bottom, #FFD700, #FF8C00, #1A202C);
+}
+.hover\:text-yellow-300:hover {
+    color: #FFD700;
+
+}
+<!--        footer-->
+        .footer-gif {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    opacity: 0.5; /* Adjust for readability */
+    z-index: -1; /* Push behind content */
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+    color: #FFD700;
+}
+
+.footer-icon:hover {
+    color: #ffffff; /* Subtle white hover effect for icons */
+}
+.footer-strip {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Adjust for preferred shade */
+    color: #ccc;
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    font-weight: 500; /* Medium weight */
+    padding: 0.5rem 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle top shadow */
+    z-index: 9999; /* Ensures it stays above all elements */
+}
+
+        <!-- Add Animations -->
+    <style>
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* General Styling for the Partners Section */
+#partners {
+  background-color: #f7fafc;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#partners h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+/* Grid Layout for Partner Logos */
+.partner-logo img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: contain; /* Ensures logos scale well */
+  max-height: 100px; /* Control max height */
+  margin: 0 auto; /* Centering the logos */
+}
+
+/* Hover Effect: Scale and Shadow */
+.partner-logo:hover img {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.group:hover img {
+  transform: scale(1.1); /* Slight increase in size */
+  filter: brightness(1.1); /* Slight brightening effect */
+}
+
+/* Responsive Grid Layout */
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+
     </style>
 </head>
 <body class="bg-gray-50">
 <!-- Sidebar -->
-<div class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50">
-    <div class="p-4">
+<div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
+    <div class="p-6">
+        <!-- Header Section -->
         <div class="flex items-center justify-between mb-8">
             <div class="flex items-center">
-                <img th:src="${logoUrl}" alt="Solar Valley" class="h-15 mr-1">
+                <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 mr-2">
+                <span class="text-xl font-bold text-gray-700">Solar Valley</span>
             </div>
             <button id="closeSidebar" class="text-gray-500 hover:text-gray-700">
-                <i class="bi bi-x-lg"></i>
+                <i class="bi bi-x-lg text-2xl"></i>
             </button>
         </div>
-        <nav>
-            <a href="#about" class="block py-2 px-4 text-gray-600 hover:bg-yellow-50 rounded-lg mb-1">About Us</a>
-            <a href="#founders" class="block py-2 px-4 text-gray-600 hover:bg-yellow-50 rounded-lg mb-1">Founders</a>
-            <a href="#certifications" class="block py-2 px-4 text-gray-600 hover:bg-yellow-50 rounded-lg mb-1">Certifications</a>
-            <a href="#feedback" class="block py-2 px-4 text-gray-600 hover:bg-yellow-50 rounded-lg mb-1">Customer
-                Feedback</a>
-            <a href="#contact" class="block py-2 px-4 text-gray-600 hover:bg-yellow-50 rounded-lg mb-1">Contact Us</a>
-            <a href="#faq" class="block py-2 px-4 text-gray-600 hover:bg-yellow-50 rounded-lg mb-1">FAQs</a>
+        <!-- Navigation Links -->
+        <nav class="space-y-4">
+            <a href="#about" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-info-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">About Us</span>
+            </a>
+            <a href="#feedback" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-chat-dots-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">Customer Feedback</span>
+            </a>
+            <a href="#contact" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-envelope-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">Contact Us</span>
+            </a>
+            <a href="#faq" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-question-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">FAQs</span>
+            </a>
         </nav>
     </div>
 </div>
+
 
 <!-- Main Content -->
 <div class="min-h-screen">
     <!-- Header -->
     <header class="fixed top-0 w-full shadow-sm z-40" style="background-color: #ffdb4d;">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <button id="openSidebar" class="text-gray-600 hover:text-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center text-white">
+            <button id="openSidebar" class="hover:text-yellow-400">
                 <i class="bi bi-list text-2xl"></i>
             </button>
             <div class="flex items-center">
@@ -145,8 +330,7 @@
             </div>
 
             <div class="flex gap-4">
-                <a href="#contact" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">Contact
-                    Us</a>
+                <a href="#contact" class="bg-yellow-500 px-4 py-2 rounded-lg text-gray-900 hover:bg-yellow-600 shadow-md">Contact Us</a>
             </div>
         </div>
         <!-- Contact Icons Section -->
@@ -164,9 +348,10 @@
         </div>
     </header>
 
+
     <!-- Hero Section -->
-    <section class="relative bg-fixed bg-center bg-cover bg-no-repeat" 
-         th:style="'background-image: url(' + ${aboutUs1} + ');'">
+    <section class="relative bg-center bg-cover bg-no-repeat"
+         th:style="'background-image: url(' + ${hero} + ');'">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- Overlay for text contrast -->
     <div class="container mx-auto px-4 py-24 relative z-10">
         <div class="flex flex-col lg:flex-row items-center justify-between">
@@ -176,7 +361,7 @@
                     Powering Tomorrow with Solar Solutions Today
                 </h1>
                 <p class="text-gray-200 text-lg mb-8">
-                    Complete solutions for solar installation, maintenance, CCTV systems, and computer sales.
+                    Complete solutions for solar installation, maintenance, inverters & batteries, and CCTV systems.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <a href="#services"
@@ -191,15 +376,15 @@
             </div>
 
             <!-- Video Section -->
-            <div class="lg:w-1/2 w-full">
-                <div class="relative rounded-lg shadow-lg overflow-hidden" style="padding-top: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/od5yWB5aE0c?si=KtVlgantKHF-nhiT"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
+<!--            <div class="lg:w-1/2 w-full">-->
+<!--                <div class="relative rounded-lg shadow-lg overflow-hidden" style="padding-top: 56.25%;">-->
+<!--                    <iframe class="absolute top-0 left-0 w-full h-full"-->
+<!--                            src="https://www.youtube.com/embed/od5yWB5aE0c?si=KtVlgantKHF-nhiT"-->
+<!--                            title="YouTube video player" frameborder="0"-->
+<!--                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
+<!--                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </section>
@@ -220,7 +405,7 @@
                     <i class="bi bi-sun text-4xl text-yellow-500 mb-2"></i>
                     <h3 class="text-xl font-semibold mb-4 z-10 relative">Solar Installation</h3>
                     <div
-                            class="description absolute bottom-0 left-0 w-full bg-gray-50 p-4 transform translate-y-full transition-transform duration-300"
+                            class="description absolute bottom-0 left-0 w-full bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-4 transform translate-y-full transition-transform duration-300"
                             style="height: 50%;"
                     >
                         <p class="text-gray-600">
@@ -239,7 +424,7 @@
                     <i class="bi bi-tools text-4xl text-yellow-500 mb-2"></i>
                     <h3 class="text-xl font-semibold mb-4 z-10 relative">Solar Maintenance</h3>
                     <div
-                            class="description absolute bottom-0 left-0 w-full bg-gray-50 p-4 transform translate-y-full transition-transform duration-300"
+                            class="description absolute bottom-0 left-0 w-full bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-4 transform translate-y-full transition-transform duration-300"
                             style="height: 50%;"
                     >
                         <p class="text-gray-600">
@@ -255,14 +440,14 @@
                         onclick="toggleSlider(this)"
                         style="height: 200px;"
                 >
-                    <i class="bi bi-camera-video text-4xl text-yellow-500 mb-2"></i>
-                    <h3 class="text-xl font-semibold mb-4 z-10 relative">CCTV Installation</h3>
+                    <i class="bi bi-laptop text-4xl text-yellow-500 mb-2"></i>
+                    <h3 class="text-xl font-semibold mb-4 z-10 relative">Inverters & Batteries</h3>
                     <div
-                            class="description absolute bottom-0 left-0 w-full bg-gray-50 p-4 transform translate-y-full transition-transform duration-300"
+                            class="description absolute bottom-0 left-0 w-full bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-4 transform translate-y-full transition-transform duration-300"
                             style="height: 50%;"
                     >
                         <p class="text-gray-600">
-                            Security solutions with high-quality CCTV system installation.
+                            Quality Inverters and accessories for all your house needs.
                         </p>
                     </div>
                 </div>
@@ -274,14 +459,14 @@
                         onclick="toggleSlider(this)"
                         style="height: 200px;"
                 >
-                    <i class="bi bi-laptop text-4xl text-yellow-500 mb-2"></i>
-                    <h3 class="text-xl font-semibold mb-4 z-10 relative">Computer Sales</h3>
+                    <i class="bi bi-camera-video text-4xl text-yellow-500 mb-2"></i>
+                    <h3 class="text-xl font-semibold mb-4 z-10 relative">CCTV Installation</h3>
                     <div
-                            class="description absolute bottom-0 left-0 w-full bg-gray-50 p-4 transform translate-y-full transition-transform duration-300"
+                            class="description absolute bottom-0 left-0 w-full bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-4 transform translate-y-full transition-transform duration-300"
                             style="height: 50%;"
                     >
                         <p class="text-gray-600">
-                            Quality computers and accessories for all your technology needs.
+                            Security solutions with high-quality CCTV system installation.
                         </p>
                     </div>
                 </div>
@@ -340,90 +525,90 @@
     </section>
 
     <!-- Founders Section -->
-    <section id="founders" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Founders</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Founder Card -->
-                <div
-                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"
-                >
-                    <div class="flex flex-col md:flex-row">
-                        <!-- Image Section -->
-                        <div class="md:w-1/3">
-                            <img
-                                    th:src="${founder1}"
-                                    alt="Jitendra Modi"
-                                    class="w-full h-full object-cover"
-                            />
-                        </div>
-                        <!-- Content Section -->
-                        <div class="p-6 flex-1">
-                            <h3 class="text-2xl font-semibold mb-2">Jitendra Modi</h3>
-                            <p class="text-sm text-yellow-500 mb-4">CEO & Technical Director</p>
-                            <p class="text-gray-600 mb-4">
-                                With over 15 years of experience in the tech and solar industry, He has successfully
-                                handled 10+ solar projects nationwide, helping countless businesses and homes transition
-                                to renewable energy.
-                            </p>
-                            <p class="text-gray-600 text-sm italic">
-                                "Empowering the world with sustainable energy solutions."
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<!--    <section id="founders" class="py-16 bg-white">-->
+<!--        <div class="container mx-auto px-6">-->
+<!--            <h2 class="text-3xl font-bold text-center mb-12">Our Founders</h2>-->
+<!--            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">-->
+<!--                &lt;!&ndash; Founder Card &ndash;&gt;-->
+<!--                <div-->
+<!--                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"-->
+<!--                >-->
+<!--                    <div class="flex flex-col md:flex-row">-->
+<!--                        &lt;!&ndash; Image Section &ndash;&gt;-->
+<!--                        <div class="md:w-1/3">-->
+<!--                            <img-->
+<!--                                    th:src="${founder1}"-->
+<!--                                    alt="Jitendra Modi"-->
+<!--                                    class="w-full h-full object-cover"-->
+<!--                            />-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Content Section &ndash;&gt;-->
+<!--                        <div class="p-6 flex-1">-->
+<!--                            <h3 class="text-2xl font-semibold mb-2">Jitendra Modi</h3>-->
+<!--                            <p class="text-sm text-yellow-500 mb-4">CEO & Technical Director</p>-->
+<!--                            <p class="text-gray-600 mb-4">-->
+<!--                                With over 15 years of experience in the tech and solar industry, He has successfully-->
+<!--                                handled 10+ solar projects nationwide, helping countless businesses and homes transition-->
+<!--                                to renewable energy.-->
+<!--                            </p>-->
+<!--                            <p class="text-gray-600 text-sm italic">-->
+<!--                                "Empowering the world with sustainable energy solutions."-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
-                <!-- Founder Card -->
-                <div
-                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"
-                >
-                    <div class="flex flex-col md:flex-row">
-                        <!-- Image Section -->
-                        <div class="md:w-1/3">
-                            <img
-                                    th:src="${logoUrl}"
-                                    alt="Hemant Mimrot"
-                                    class="w-full h-full object-cover"
-                            />
-                        </div>
-                        <!-- Content Section -->
-                        <div class="p-6 flex-1">
-                            <h3 class="text-2xl font-semibold mb-2">Hemant Mimrot</h3>
-                            <p class="text-sm text-yellow-500 mb-4">COO & Innovation Lead</p>
-                            <p class="text-gray-600 mb-4">
-                                Sarah is an innovator with a passion for clean energy solutions. He has spearheaded
-                                multiple groundbreaking initiatives, leading the company to receive several sustainability
-                                awards.
-                            </p>
-                            <p class="text-gray-600 text-sm italic">
-                                "Innovation is the key to a brighter, greener future."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--                &lt;!&ndash; Founder Card &ndash;&gt;-->
+<!--                <div-->
+<!--                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"-->
+<!--                >-->
+<!--                    <div class="flex flex-col md:flex-row">-->
+<!--                        &lt;!&ndash; Image Section &ndash;&gt;-->
+<!--                        <div class="md:w-1/3">-->
+<!--                            <img-->
+<!--                                    th:src="${logoUrl}"-->
+<!--                                    alt="Hemant Mimrot"-->
+<!--                                    class="w-full h-full object-cover"-->
+<!--                            />-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; Content Section &ndash;&gt;-->
+<!--                        <div class="p-6 flex-1">-->
+<!--                            <h3 class="text-2xl font-semibold mb-2">Hemant Mimrot</h3>-->
+<!--                            <p class="text-sm text-yellow-500 mb-4">COO & Innovation Lead</p>-->
+<!--                            <p class="text-gray-600 mb-4">-->
+<!--                                Sarah is an innovator with a passion for clean energy solutions. He has spearheaded-->
+<!--                                multiple groundbreaking initiatives, leading the company to receive several sustainability-->
+<!--                                awards.-->
+<!--                            </p>-->
+<!--                            <p class="text-gray-600 text-sm italic">-->
+<!--                                "Innovation is the key to a brighter, greener future."-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Certifications</h2>
-            <div class="scroll-container flex overflow-x-auto gap-8 pb-4">
-                <div class="scroll-item flex-none w-64 p-6 bg-white rounded-lg shadow-md">
-                    <i class="bi bi-award text-4xl text-yellow-500 mb-4 block text-center"></i>
-                    <h3 class="text-xl font-semibold text-center mb-2">ISO 9001:2015</h3>
-                    <p class="text-gray-600 text-center">Quality Management System</p>
-                </div>
-                <div class="scroll-item flex-none w-64 p-6 bg-white rounded-lg shadow-md">
-                    <i class="bi bi-award text-4xl text-yellow-500 mb-4 block text-center"></i>
-                    <h3 class="text-xl font-semibold text-center mb-2">Solar PV Installation</h3>
-                    <p class="text-gray-600 text-center">Certified Installer</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--    <section id="certifications" class="py-16 bg-white">-->
+<!--        <div class="container mx-auto px-4">-->
+<!--            <h2 class="text-3xl font-bold text-center mb-12">Our Certifications</h2>-->
+<!--            <div class="scroll-container flex overflow-x-auto gap-8 pb-4">-->
+<!--                <div class="scroll-item flex-none w-64 p-6 bg-white rounded-lg shadow-md">-->
+<!--                    <i class="bi bi-award text-4xl text-yellow-500 mb-4 block text-center"></i>-->
+<!--                    <h3 class="text-xl font-semibold text-center mb-2">ISO 9001:2015</h3>-->
+<!--                    <p class="text-gray-600 text-center">Quality Management System</p>-->
+<!--                </div>-->
+<!--                <div class="scroll-item flex-none w-64 p-6 bg-white rounded-lg shadow-md">-->
+<!--                    <i class="bi bi-award text-4xl text-yellow-500 mb-4 block text-center"></i>-->
+<!--                    <h3 class="text-xl font-semibold text-center mb-2">Solar PV Installation</h3>-->
+<!--                    <p class="text-gray-600 text-center">Certified Installer</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <!-- Customer Feedback Section -->
     <section id="feedback" class="py-16 bg-white">
@@ -482,181 +667,286 @@
         </div>
     </section>
 
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
-        <div id="messageBox" class="max-w-2xl mx-auto mb-6">
-            <!-- Success Message -->
-            <div th:if="${successMessage != null}"
-                 class="bg-green-100 border border-green-500 text-green-700 px-4 py-3 rounded mb-4" id="successMessage">
-                <p th:text="${successMessage}"></p>
-            </div>
-
-            <!-- Error Message -->
-            <div th:if="${errorMessage != null}"
-                 class="bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded mb-4" id="errorMessage">
-                <p th:text="${errorMessage}"></p>
-            </div>
-        </div>
-
+    <!-- Associated Partners Section -->
+    <section id="partners" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
-            <div class="max-w-2xl mx-auto">
-                <form class="space-y-6" action="/solar-valley/contact-us" method="POST">
-                    <div>
-                        <label class="block text-gray-700 mb-2">Name</label>
-                        <input type="text" name="fullName"
-                               class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                               required>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Email</label>
-                        <input type="email" name="email"
-                               class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                               required>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Phone Number</label>
-                        <input type="tel" name="phoneNumber"
-                               class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                               required>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Message</label>
-                        <textarea name="message"
-                                  class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                                  rows="4"></textarea>
-                    </div>
-                    <button type="submit"
-                            class="w-full bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600">Send
-                        Message
-                    </button>
-                </form>
+            <!-- Section Title -->
+            <h2 class="text-3xl font-bold text-center mb-12">Our Associated Partners</h2>
+
+            <!-- Partners Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-12">
+                <!-- Partner Logo 1 -->
+                <div class="partner-logo group relative">
+                    <img th:src="${p1}" alt="Partner 1" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                </div>
+
+                <!-- Partner Logo 2 -->
+                <div class="partner-logo group relative">
+                    <img th:src="${p2}" alt="Partner 2" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                </div>
+
+                <!-- Partner Logo 3 -->
+                <div class="partner-logo group relative">
+                    <img th:src="${p3}" alt="Partner 3" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                </div>
+
+                <!-- Partner Logo 4 -->
+                <div class="partner-logo group relative">
+                    <img th:src="${p4}" alt="Partner 4" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                </div>
+
+                <!-- Partner Logo 5 -->
+                <div class="partner-logo group relative">
+                    <img th:src="${p5}" alt="Partner 5" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                </div>
+
+                <!-- Partner Logo 6 -->
+                <div class="partner-logo group relative">
+                    <img th:src="${p6}" alt="Partner 6" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                </div>
+                <!-- Partner Logo 7 -->
+                <div class="partner-logo group relative">
+                    <img th:src="${p7}" alt="Partner 7" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                </div>
+
+                <!-- Partner Logo 7 -->
+                <div class="partner-logo group relative">
+                    <img th:src="${p8}" alt="Partner 8" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-            <div class="max-w-3xl mx-auto space-y-4">
-                <div class="border rounded-lg p-4">
-                    <button class="faq-toggle w-full flex justify-between items-center">
-                        <span class="font-semibold">How long does solar installation take?</span>
-                        <i class="bi bi-plus"></i>
-                    </button>
-                    <div class="faq-content hidden mt-4 text-gray-600">
-                        Typical residential installations take 1-3 days, depending on the system size and complexity.
+
+
+    <!-- Contact and FAQ Section -->
+    <section id="contact-faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Contact Section -->
+            <div id="contact" class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-8 rounded-lg shadow-lg animate-fadeIn">
+                <h2 class="text-4xl font-extrabold text-yellow-600 mb-6 text-center">Get in Touch</h2>
+                <div id="messageBox" class="max-w-2xl mx-auto mb-6">
+                    <!-- Success Message -->
+                    <div th:if="${successMessage != null}"
+                         class="bg-green-100 border border-green-500 text-green-700 px-4 py-3 rounded mb-4" id="successMessage">
+                        <p th:text="${successMessage}"></p>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div th:if="${errorMessage != null}"
+                         class="bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded mb-4" id="errorMessage">
+                        <p th:text="${errorMessage}"></p>
                     </div>
                 </div>
-                <div class="border rounded-lg p-4">
-                    <button class="faq-toggle w-full flex justify-between items-center">
-                        <span class="font-semibold">What maintenance is required?</span>
-                        <i class="bi bi-plus"></i>
-                    </button>
-                    <div class="faq-content hidden mt-4 text-gray-600">
-                        Regular cleaning and annual inspections are recommended to maintain optimal performance.
+                <p class="text-gray-700 mb-8 text-center">We'd love to hear from you! Fill out the form and we'll get back to you promptly.</p>
+                <form class="space-y-6" action="/solar-valley/contact-us" method="POST">
+                    <div>
+                        <label class="block text-gray-600 mb-2 font-medium">Name</label>
+                        <input type="text" name="fullName"
+                               class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                               required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-600 mb-2 font-medium">Email</label>
+                        <input type="email" name="email"
+                               class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                               required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-600 mb-2 font-medium">Phone Number</label>
+                        <input type="tel" name="phoneNumber"
+                               class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                               required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-600 mb-2 font-medium">Message</label>
+                        <textarea name="message"
+                                  class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                                  rows="4"></textarea>
+                    </div>
+                    <button type="submit"
+                            class="w-full bg-yellow-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300">Send
+                        Message</button>
+                </form>
+            </div>
+
+            <!-- FAQ Section -->
+            <div id="faq" class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-8 rounded-lg shadow-lg animate-fadeIn">
+                <h2 class="text-4xl font-extrabold text-yellow-600 mb-6 text-center">Frequently Asked Questions</h2>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="border rounded-lg p-4">
+                        <button class="faq-toggle w-full flex justify-between items-center">
+                            <span class="font-semibold">How long does solar installation take?</span>
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600">
+                            Typical residential installations take 1-3 days, depending on the system size and complexity.
+                        </div>
+                    </div>
+                    <div class="border rounded-lg p-4">
+                        <button class="faq-toggle w-full flex justify-between items-center">
+                            <span class="font-semibold">What maintenance is required?</span>
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600">
+                            Regular cleaning and annual inspections are recommended to maintain optimal performance.
+                        </div>
+                    </div>
+                    <div class="border rounded-lg p-4">
+                        <button class="faq-toggle w-full flex justify-between items-center">
+                            <span class="font-semibold">How much does solar installation cost?</span>
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600">
+                            The cost varies based on the system size, location, and installation complexity. Contact us for
+                            a free estimate.
+                        </div>
+                    </div>
+                    <div class="border rounded-lg p-4">
+                        <button class="faq-toggle w-full flex justify-between items-center">
+                            <span class="font-semibold">What warranty is included with solar panels?</span>
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600">
+                            Most solar panels come with a 25-year performance warranty, ensuring their efficiency for years
+                            to come.
+                        </div>
+                    </div>
+                    <div class="border rounded-lg p-4">
+                        <button class="faq-toggle w-full flex justify-between items-center">
+                            <span class="font-semibold">Are solar panels effective in cloudy or rainy weather?</span>
+                            <i class="bi bi-plus"></i>
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600">
+                            Yes, solar panels still generate electricity in cloudy or rainy weather, though their efficiency may be slightly reduced. Modern solar panels are designed to work efficiently in diffused sunlight, so they continue to produce energy even on overcast days.
+                        </div>
                     </div>
                 </div>
-                <div class="border rounded-lg p-4">
-                    <button class="faq-toggle w-full flex justify-between items-center">
-                        <span class="font-semibold">How much does solar installation cost?</span>
-                        <i class="bi bi-plus"></i>
-                    </button>
-                    <div class="faq-content hidden mt-4 text-gray-600">
-                        The cost varies based on the system size, location, and installation complexity. Contact us for
-                        a free estimate.
-                    </div>
-                </div>
-                <div class="border rounded-lg p-4">
-                    <button class="faq-toggle w-full flex justify-between items-center">
-                        <span class="font-semibold">What warranty is included with solar panels?</span>
-                        <i class="bi bi-plus"></i>
-                    </button>
-                    <div class="faq-content hidden mt-4 text-gray-600">
-                        Most solar panels come with a 25-year performance warranty, ensuring their efficiency for years
-                        to come.
-                    </div>
+                <div class="mt-8 flex justify-end">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2owdTFpZ3N2bmZydHZjNHZlOXVoNDB2a2NweGc3MjFsNGFoYnlwayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/aqR7oWAhRt0CosPMM8/giphy.gif"
+                         alt="Thinking"
+                         class="w-40 h-40 rounded-lg shadow-lg object-cover">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="bg-white py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Why Choose Solar Valley?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">
-                    <div class="mb-4">
-                        <i class="bi bi-sun text-4xl text-yellow-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Custom Solar Installations</h3>
-                    <p class="text-gray-600">Tailored solar panel setups designed to meet your unique energy needs and maximize savings.</p>
-                </div>
-                <!-- Feature 2 -->
-                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">
-                    <div class="mb-4">
-                        <i class="bi bi-tools text-4xl text-yellow-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Comprehensive Maintenance</h3>
-                    <p class="text-gray-600">Reliable maintenance services to ensure your solar systems perform at peak efficiency.</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">
-                    <div class="mb-4">
-                        <i class="bi bi-battery-charging text-4xl text-yellow-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Energy Storage Solutions</h3>
-                    <p class="text-gray-600">Store excess energy with our advanced battery systems for uninterrupted power supply.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--    <section id="features" class="bg-white py-20">-->
+<!--        <div class="container mx-auto px-6">-->
+<!--            <h2 class="text-4xl font-bold text-center mb-12">Why Choose Solar Valley?</h2>-->
+<!--            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">-->
+<!--                &lt;!&ndash; Feature 1 &ndash;&gt;-->
+<!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
+<!--                    <div class="mb-4">-->
+<!--                        <i class="bi bi-sun text-4xl text-yellow-500"></i>-->
+<!--                    </div>-->
+<!--                    <h3 class="text-xl font-semibold mb-2">Custom Solar Installations</h3>-->
+<!--                    <p class="text-gray-600">Tailored solar panel setups designed to meet your unique energy needs and maximize savings.</p>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Feature 2 &ndash;&gt;-->
+<!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
+<!--                    <div class="mb-4">-->
+<!--                        <i class="bi bi-tools text-4xl text-yellow-500"></i>-->
+<!--                    </div>-->
+<!--                    <h3 class="text-xl font-semibold mb-2">Comprehensive Maintenance</h3>-->
+<!--                    <p class="text-gray-600">Reliable maintenance services to ensure your solar systems perform at peak efficiency.</p>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Feature 3 &ndash;&gt;-->
+<!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
+<!--                    <div class="mb-4">-->
+<!--                        <i class="bi bi-battery-charging text-4xl text-yellow-500"></i>-->
+<!--                    </div>-->
+<!--                    <h3 class="text-xl font-semibold mb-2">Energy Storage Solutions</h3>-->
+<!--                    <p class="text-gray-600">Store excess energy with our advanced battery systems for uninterrupted power supply.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <!-- Call to Action -->
-    <section class="py-12 " style="background-color: #ffdb4d;">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-white mb-4">Ready to Take the Next Step?</h2>
-            <p class="text-white text-lg mb-6">Contact us today to learn more about our tailored solar solutions.</p>
-            <a href="#contact" class="bg-white text-yellow-500 px-6 py-3 rounded-lg text-lg hover:bg-yellow-50">Get in
-                Touch</a>
+<!--    <section class="py-12 " style="background-color: #ffdb4d;">-->
+<!--        <div class="container mx-auto px-6 text-center">-->
+<!--            <h2 class="text-3xl font-bold text-white mb-4">Ready to Take the Next Step?</h2>-->
+<!--            <p class="text-white text-lg mb-6">Contact us today to learn more about our tailored solar solutions.</p>-->
+<!--            <a href="#contact" class="bg-white text-yellow-500 px-6 py-3 rounded-lg text-lg hover:bg-yellow-50">Get in-->
+<!--                Touch</a>-->
+<!--        </div>-->
+<!--    </section>-->
+
+
+    <footer class="relative text-white py-16 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0">
+            <img th:src="${footer}"
+                 alt="Solar Panels Background"
+                 class="w-full h-full object-cover">
         </div>
-    </section>
+        <div class="absolute inset-0 bg-black opacity-60"></div>
 
+        <!-- Footer Content -->
+        <div class="relative container mx-auto px-6 lg:px-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 animate-fadeIn">
+                <!-- About Us Section -->
+                <div class="group">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Solar Valley</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Powering a brighter tomorrow with sustainable and cutting-edge solar solutions. Join us in creating a greener future.
+                    </p>
+                </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Solar Valley</h3>
-                    <p class="text-gray-400">Powering tomorrow with solar solutions today.</p>
+                <!-- Contact Section -->
+                <div class="group">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Contact</h3>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li class="flex items-center">
+                            <i class="bi bi-envelope-fill text-yellow-400 mr-2"></i>
+                            <a href="mailto:info@solar-valley.com" class="hover:text-yellow-400 transition">info@solar-valley.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-telephone-fill text-yellow-400 mr-2"></i>
+                            <a href="tel:+919111831966" class="hover:text-yellow-400 transition">+91-9111831966</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-geo-alt-fill text-yellow-400 mr-2"></i>
+                            <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z/data=!4m2!3m1!1s0x0:0x645a7a4f71c7ee4a?sa=X&ved=1t:2428&ictx=111&cshid=1733656743254160"
+                               class="hover:text-yellow-400 transition">UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh 453771</a>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contact</h3>
-                    <p class="text-gray-400">Email: info@solar-valley.com</p>
-                    <p class="text-gray-400">Phone: +91-9111831966</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+
+                <!-- Follow Us Section -->
+                <div class="group">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Follow Us</h3>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Stay connected for the latest updates and offers:
+                    </p>
                     <div class="flex gap-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                            <i class="bi bi-youtube"></i>
+                        </a>
                     </div>
                 </div>
-
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2023 Solar Valley. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <div class="bottom-0 left-0 w-full bg-gray-800 text-white py-2 shadow-lg z-50">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-300 text-sm font-medium">
+                &copy; 2023 Solar Valley. All rights reserved.
+            </p>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -671,18 +961,6 @@
 
     closeButton.addEventListener('click', () => {
         sidebar.classList.remove('active');
-    });
-
-    // FAQ Toggle
-    const faqToggles = document.querySelectorAll('.faq-toggle');
-    faqToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const content = toggle.nextElementSibling;
-            const icon = toggle.querySelector('i');
-            content.classList.toggle('hidden');
-            icon.classList.toggle('bi-plus');
-            icon.classList.toggle('bi-dash');
-        });
     });
 
     // Close sidebar when clicking a link
@@ -762,6 +1040,19 @@
 
   // Show the first image initially
   showImage(currentImageIndex);
+
+    //contact
+     // FAQ Toggle
+    const faqToggles = document.querySelectorAll('.faq-toggle');
+    faqToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const content = toggle.nextElementSibling;
+            const icon = toggle.querySelector('i');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('bi-plus');
+            icon.classList.toggle('bi-dash');
+        });
+    });
 
 </script>
 </body>
