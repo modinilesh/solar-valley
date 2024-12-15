@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Valley - Renewable Energy Solutions</title>
+    <link th:href="${logoUrl}" rel="icon" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        .scroll-container {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .scroll-item {
+            scroll-snap-align: start;
+        }
+        .success-message,
+        .error-message {
+            max-width: 90%; /* Slightly wider than the form */
+            margin: 0 auto; /* Center aligns the messages */
+            border-left-width: 6px; /* Add slight emphasis to the border */
+            padding-left: 1rem; /* Adjust padding for better spacing */
+            font-size: 0.95rem; /* Ensure the text size is readable */
+        }
+
+        /* General Sidebar Styling */
+.sidebar {
+    background-color: #ffffff; /* Clean white background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 16rem; /* Fixed width for the sidebar */
+    transition: transform 0.3s ease-in-out; /* Smooth open/close transition */
+}
+
+/* Navigation Link Styles */
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    color: #4A5568; /* Cool gray text */
+    text-decoration: none;
+    font-size: 1rem; /* Comfortable font size */
+    font-weight: 500; /* Medium weight for emphasis */
+}
+
+.sidebar nav a:hover {
+    background-color: #FEF3C7; /* Light yellow hover background */
+    color: #D97706; /* Golden text on hover */
+}
+
+.sidebar nav a i {
+    transition: color 0.3s ease-in-out; /* Smooth icon color transition */
+}
+
+/* Close Button */
+#closeSidebar {
+    font-size: 1.25rem; /* Larger close icon */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Open/Close Animations */
+#sidebar.open {
+    transform: translateX(0); /* Slide in */
+}
+
+#sidebar.closed {
+    transform: translateX(-100%); /* Slide out */
+}
+
+
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .scroll-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Animation Classes */
+        .animate-fade-in {
+          animation: fade-in 0.8s ease forwards;
+        }
+
+        /* Add delay to animations for staggered effect */
+        .delay-100 {
+          animation-delay: 0.1s;
+        }
+        .delay-300 {
+          animation-delay: 0.3s;
+        }
+<!--Services -->
+        /* Card Hover Effect */
+        .card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+          background-color: #f5c85c;
+        }
+        /* Responsive Container */
+          .container {
+            max-width: 1200px;
+          }
+
+          /* Card Hover Effects */
+          .hover\:scale-105:hover {
+            transform: scale(1.05);
+            background-color: #f5c85c;
+          }
+
+           /*Smooth Transition for Hover */
+          .transition {
+            transition: all 0.3s ease-in-out;
+          }
+          .bg-fixed {
+        background-attachment: fixed;
+    }
+
+     /*Mobile optimization */
+    @media (max-width: 1024px) {
+        .bg-fixed {
+            background-attachment: scroll;
+        }
+    }
+
+<!--        footer-->
+        @keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.animate-spin-slow {
+    animation: spin 20s linear infinite;
+}
+.bg-gradient-to-b {
+    background: linear-gradient(to bottom, #FFD700, #FF8C00, #1A202C);
+}
+.hover\:text-yellow-300:hover {
+    color: #FFD700;
+
+}
+<!--        footer-->
+        .footer-gif {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    opacity: 0.5; /* Adjust for readability */
+    z-index: -1; /* Push behind content */
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+    color: #FFD700;
+}
+
+.footer-icon:hover {
+    color: #ffffff; /* Subtle white hover effect for icons */
+}
+.footer-strip {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Adjust for preferred shade */
+    color: #ccc;
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    font-weight: 500; /* Medium weight */
+    padding: 0.5rem 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle top shadow */
+    z-index: 9999; /* Ensures it stays above all elements */
+}
+
+        <!-- Add Animations -->
+    <style>
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* General Styling for the Partners Section */
+#partners {
+  background-color: #f7fafc;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#partners h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+/* Grid Layout for Partner Logos */
+.partner-logo img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: contain; /* Ensures logos scale well */
+  max-height: 100px; /* Control max height */
+  margin: 0 auto; /* Centering the logos */
+}
+
+/* Hover Effect: Scale and Shadow */
+.partner-logo:hover img {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.group:hover img {
+  transform: scale(1.1); /* Slight increase in size */
+  filter: brightness(1.1); /* Slight brightening effect */
+}
+
+/* Responsive Grid Layout */
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+<!--feedback card dot indication-->
+   .dot {
+        background-color: #D1D5DB; /* Tailwind's gray-400 */
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: 0 4px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .dot.active {
+        background-color: #F59E0B; /* Tailwind's yellow-500 */
+        transform: scale(1.3);
+    }
+    </style>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+         /* General Sidebar Styling */
+.sidebar {
+    background-color: #ffffff; /* Clean white background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 16rem; /* Fixed width for the sidebar */
+    transition: transform 0.3s ease-in-out; /* Smooth open/close transition */
+}
+
+/* Navigation Link Styles */
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    color: #4A5568; /* Cool gray text */
+    text-decoration: none;
+    font-size: 1rem; /* Comfortable font size */
+    font-weight: 500; /* Medium weight for emphasis */
+}
+
+.sidebar nav a:hover {
+    background-color: #FEF3C7; /* Light yellow hover background */
+    color: #D97706; /* Golden text on hover */
+}
+
+.sidebar nav a i {
+    transition: color 0.3s ease-in-out; /* Smooth icon color transition */
+}
+
+/* Close Button */
+#closeSidebar {
+    font-size: 1.25rem; /* Larger close icon */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Open/Close Animations */
+#sidebar.open {
+    transform: translateX(0); /* Slide in */
+}
+
+#sidebar.closed {
+    transform: translateX(-100%); /* Slide out */
+}
+
+
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .scroll-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Animation Classes */
+        .animate-fade-in {
+          animation: fade-in 0.8s ease forwards;
+        }
+
+        /* Add delay to animations for staggered effect */
+        .delay-100 {
+          animation-delay: 0.1s;
+        }
+        .delay-300 {
+          animation-delay: 0.3s;
+        }
+
+
+        /* Custom Animations */
+        .fade-in-up {
+            animation: fadeInUp 1s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .hover-bg:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 50%, #fef08a 100%);
+        }
+
+        .footer-gif {
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            opacity: 0.5; /* Adjust for readability */
+            z-index: -1; /* Push behind content */
+        }
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            color: #FFD700;
+        }
+        .footer-icon:hover {
+            color: #ffffff; /* Subtle white hover effect for icons */
+        }
+        .footer-strip {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333; /* Adjust for preferred shade */
+            color: #ccc;
+            font-size: 0.875rem; /* Equivalent to text-sm */
+            font-weight: 500; /* Medium weight */
+            padding: 0.5rem 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle top shadow */
+            z-index: 9999; /* Ensures it stays above all elements */
+        }
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
+    <div class="p-6">
+        <!-- Header Section -->
+        <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center">
+                <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 mr-2">
+                <span class="text-xl font-bold text-gray-700">Solar Valley</span>
+            </div>
+            <button id="closeSidebar" class="text-gray-500 hover:text-gray-700">
+                <i class="bi bi-x-lg text-2xl"></i>
+            </button>
+        </div>
+        <!-- Navigation Links -->
+        <nav class="space-y-4">
+            <!-- Home -->
+            <a href="/" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-house-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">Home</span>
+            </a>
+            <a href="/about-us" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-info-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">About Us</span>
+            </a>
+            <a href="/home#feedback" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-chat-dots-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">Customer Feedback</span>
+            </a>
+            <a href="/home#contact" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-envelope-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">Contact Us</span>
+            </a>
+            <a href="/home#faq" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-question-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">FAQs</span>
+            </a>
+        </nav>
+    </div>
+    <!-- Contact Section -->
+    <div class="mt-10">
+        <h3 class="text-lg font-bold text-gray-700 mb-4">Get in Touch</h3>
+        <div class="space-y-3">
+            <!-- Phone -->
+            <a href="tel:+919111831966" class="flex items-center py-2 px-4 bg-white text-gray-700 rounded-lg shadow-sm hover:shadow-md transition group hover:bg-yellow-50">
+                <i class="bi bi-telephone-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">+91 91118 31966</span>
+            </a>
+            <!-- Address -->
+            <div class="flex items-start py-2 px-4 bg-white text-gray-700 rounded-lg shadow-sm hover:shadow-md transition group hover:bg-yellow-50">
+                <i class="bi bi-geo-alt-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <div>
+                    <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z/data=!4m2!3m1!1s0x0:0x645a7a4f71c7ee4a?sa=X&ved=1t:2428&ictx=111&cshid=1733656743254160"
+                       class="hover:text-yellow-400 transition">UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh, PIN: 453771</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 text-gray-800 py-12 relative"
+         th:style="'background-image: url(' + ${aboutUsHeader} + '); background-size: cover; background-position: center; background-repeat: no-repeat;'">
+    <button id="openSidebar" class="hover:text-yellow-400">
+        <i class="bi bi-list text-2xl"></i>
+    </button>
+</section>
+<div class="fixed bottom-4 right-4 flex flex-col gap-4 z:30">
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/+919111831966" target="_blank"
+       class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+        <i class="bi bi-whatsapp text-2xl"></i>
+    </a>
+    <!-- Call Icon -->
+    <a href="tel:+919111831966"
+       class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+        <i class="bi bi-telephone-fill text-2xl"></i>
+    </a>
+</div>
+
+<!-- Main Content -->
+<div class="min-h-screen">
+    <!-- Header -->
+<!--    <header class="fixed top-0 w-full shadow-sm z-40" style="background-color: #ffdb4d;">-->
+<!--        <div class="container mx-auto px-4 py-3 flex justify-between items-center text-white">-->
+<!--            <button id="openSidebar" class="hover:text-yellow-400">-->
+<!--                <i class="bi bi-list text-2xl"></i>-->
+<!--            </button>-->
+<!--            <div class="flex items-center">-->
+<!--                &lt;!&ndash; Logo &ndash;&gt;-->
+<!--                <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 mr-2">-->
+<!--                &lt;!&ndash; Text &ndash;&gt;-->
+<!--                <span class="text-xl font-bold">Solar Valley</span>-->
+<!--            </div>-->
+
+<!--            <div class="flex gap-4">-->
+<!--                <a href="#contact" class="bg-yellow-500 px-4 py-2 rounded-lg text-gray-900 hover:bg-yellow-600 shadow-md">Contact Us</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Contact Icons Section &ndash;&gt;-->
+<!--        <div class="fixed bottom-4 right-4 flex flex-col gap-4">-->
+<!--            &lt;!&ndash; WhatsApp Icon &ndash;&gt;-->
+<!--            <a href="https://wa.me/+919111831966" target="_blank"-->
+<!--               class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">-->
+<!--                <i class="bi bi-whatsapp text-2xl"></i>-->
+<!--            </a>-->
+<!--            &lt;!&ndash; Call Icon &ndash;&gt;-->
+<!--            <a href="tel:+919111831966"-->
+<!--               class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">-->
+<!--                <i class="bi bi-telephone-fill text-2xl"></i>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--    </header>-->
+
+
+<!--   Contact us section -->
+    <section class="text-gray-600 body-font relative">
+        <!-- Map Background Section -->
+        <div class="absolute inset-0 bg-gray-300">
+            <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14712.708078440517!2d75.9175317!3d22.7959037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39631df57fb2e9b3%3A0x645a7a4f71c7ee4a!2sSOLAR%20VALLEY%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1734282164240!5m2!1sen!2sin" style="filter: grayscale(1) contrast(1.2) brightness(0.7) opacity(0.4); height: 100%; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Contact Info Cards -->
+        <div class="container px-5 py-24 mx-auto flex justify-center items-center relative z-10">
+            <!-- Flex wrapper for centering cards -->
+            <div class="flex flex-wrap justify-center items-center gap-6">
+                <!-- Email Card -->
+                <div class="lg:w-1/4 md:w-1/3 sm:w-1/2 bg-white rounded-lg p-6 flex flex-col shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Email</h2>
+                    <p class="leading-relaxed mb-5 text-gray-600">For inquiries, reach us at our email address:</p>
+                    <a href="mailto:info@solar-valley.co.in" class="text-indigo-500 hover:text-indigo-600 text-base font-semibold transition duration-300 ease-in-out">info@solar-valley.co.in</a>
+                </div>
+
+                <!-- Contact Number Card -->
+                <div class="lg:w-1/4 md:w-1/3 sm:w-1/2 bg-white rounded-lg p-6 flex flex-col shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Contact Number</h2>
+                    <p class="leading-relaxed mb-5 text-gray-600">For immediate assistance, give us a call at:</p>
+                    <a href="tel:+919111831966" class="text-indigo-500 hover:text-indigo-600 text-base font-semibold transition duration-300 ease-in-out">+91 9111831966</a>
+                </div>
+
+                <!-- Address Card -->
+                <div class="lg:w-1/4 md:w-1/3 sm:w-1/2 bg-white rounded-lg p-6 flex flex-col shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Our Address</h2>
+                    <p class="leading-relaxed mb-5 text-gray-600">Visit us at:</p>
+                    <p class="text-gray-700 text-base font-semibold hover:text-indigo-500 transition duration-300 ease-in-out">
+                        UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh, PIN: 453771
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="relative text-white py-16 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0">
+<!--            <img th:src="${footer}"-->
+            <img src="https://storage.googleapis.com/a1aa/image/xAidF3elSORMfkWLIfDZ4HE2Uo2STkvkPAQOIIBAEI0RrW1nA.jpg"
+                 alt="Solar Panels Background"
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+
+        <!-- Footer Content -->
+        <div class="relative container mx-auto px-6 lg:px-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 animate-fadeIn">
+                <!-- About Us Section -->
+                <div class="group">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Solar Valley</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Powering a brighter tomorrow with sustainable and cutting-edge solar solutions. Join us in creating a greener future.
+                    </p>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="group">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Contact</h3>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li class="flex items-center">
+                            <i class="bi bi-envelope-fill text-yellow-400 mr-2"></i>
+                            <a href="mailto:info@solar-valley.com" class="hover:text-yellow-400 transition">info@solar-valley.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-telephone-fill text-yellow-400 mr-2"></i>
+                            <a href="tel:+919111831966" class="hover:text-yellow-400 transition">+91-9111831966</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-geo-alt-fill text-yellow-400 mr-2"></i>
+                            <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z/data=!4m2!3m1!1s0x0:0x645a7a4f71c7ee4a?sa=X&ved=1t:2428&ictx=111&cshid=1733656743254160"
+                               class="hover:text-yellow-400 transition">UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh, pin:453771</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Follow Us Section -->
+                <div class="group">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Follow Us</h3>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Stay connected for the latest updates and offers:
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="bottom-0 left-0 w-full bg-gray-800 bg-opacity-100 text-white py-2 shadow-lg z-50">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-300 text-sm font-medium">
+                &copy; 2023 Solar Valley. All rights reserved.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // Sidebar Toggle
+    const sidebar = document.querySelector('.sidebar');
+    const openButton = document.getElementById('openSidebar');
+    const closeButton = document.getElementById('closeSidebar');
+
+    openButton.addEventListener('click', () => {
+        sidebar.classList.add('active');
+    });
+
+    closeButton.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+    });
+
+    // Close sidebar when clicking a link
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+    });
+
+
+    // Counter Animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the slower
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+
+                // Lower inc to slow and higher to slow
+                const inc = target / speed;
+
+                // Check if target is reached
+                if (count < target) {
+                    // Add inc to count and output in counter
+                    counter.innerText = Math.ceil(count + inc);
+                    // Call function every ms
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target + '+';
+                }
+            };
+
+            updateCount();
+        });
+    });
+
+    // Carousel Animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const carouselImages = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        const changeImage = () => {
+            carouselImages[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % carouselImages.length;
+            carouselImages[currentIndex].classList.add('active');
+        };
+
+        setInterval(changeImage, 3000); // Change image every 3 seconds
+    });
+</script>
+</body>
+</html>
