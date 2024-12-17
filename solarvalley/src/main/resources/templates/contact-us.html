@@ -519,6 +519,26 @@
 </div>
 
 
+<!-- Hero Section -->
+<section class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 text-gray-800 py-12 relative"
+         th:style="'background-image: url(' + ${aboutUsHeader} + '); background-size: cover; background-position: center; background-repeat: no-repeat;'">
+    <button id="openSidebar" class="hover:text-yellow-400">
+        <i class="bi bi-list text-2xl"></i>
+    </button>
+</section>
+<div class="fixed bottom-4 right-4 flex flex-col gap-4 z:30">
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/+919111831966" target="_blank"
+       class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+        <i class="bi bi-whatsapp text-2xl"></i>
+    </a>
+    <!-- Call Icon -->
+    <a href="tel:+919111831966"
+       class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+        <i class="bi bi-telephone-fill text-2xl"></i>
+    </a>
+</div>
+
 <!-- Main Content -->
 <div class="min-h-screen">
     <!-- Header -->
@@ -554,185 +574,49 @@
 <!--    </header>-->
 
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 text-gray-800 py-12 relative"
-             th:style="'background-image: url(' + ${aboutUsHeader} + '); background-size: cover; background-position: center; background-repeat: no-repeat;'">
-        <button id="openSidebar" class="hover:text-yellow-400">
-            <i class="bi bi-list text-2xl"></i>
-        </button>
-        <div class="container mx-auto text-center grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="fade-in-up">
-                <h3 class="text-5xl font-bold counter" data-target="250">0+</h3>
-                <p class="text-lg mt-2">Total Projects Delivered</p>
-            </div>
-            <div class="fade-in-up">
-                <h3 class="text-5xl font-bold counter" data-target="2000">0+</h3>
-                <p class="text-lg mt-2">Happy Customers</p>
-            </div>
-            <div class="fade-in-up">
-                <h3 class="text-5xl font-bold counter" data-target="8">0+</h3>
-                <p class="text-lg mt-2">Years of Experience</p>
+<!--   Contact us section -->
+    <section class="text-gray-600 body-font relative">
+        <!-- Map Background Section -->
+        <div class="absolute inset-0 bg-gray-300">
+            <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14712.708078440517!2d75.9175317!3d22.7959037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39631df57fb2e9b3%3A0x645a7a4f71c7ee4a!2sSOLAR%20VALLEY%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1734282164240!5m2!1sen!2sin" style="filter: grayscale(1) contrast(1.2) brightness(0.7) opacity(0.4); height: 100%; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Contact Info Cards -->
+        <div class="container px-5 py-24 mx-auto flex justify-center items-center relative z-10">
+            <!-- Flex wrapper for centering cards -->
+            <div class="flex flex-wrap justify-center items-center gap-6">
+                <!-- Email Card -->
+                <div class="lg:w-1/4 md:w-1/3 sm:w-1/2 bg-white rounded-lg p-6 flex flex-col shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Email</h2>
+                    <p class="leading-relaxed mb-5 text-gray-600">For inquiries, reach us at our email address:</p>
+                    <a href="mailto:info@solar-valley.co.in" class="text-indigo-500 hover:text-indigo-600 text-base font-semibold transition duration-300 ease-in-out">info@solar-valley.co.in</a>
+                </div>
+
+                <!-- Contact Number Card -->
+                <div class="lg:w-1/4 md:w-1/3 sm:w-1/2 bg-white rounded-lg p-6 flex flex-col shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Contact Number</h2>
+                    <p class="leading-relaxed mb-5 text-gray-600">For immediate assistance, give us a call at:</p>
+                    <a href="tel:+919111831966" class="text-indigo-500 hover:text-indigo-600 text-base font-semibold transition duration-300 ease-in-out">+91 9111831966</a>
+                </div>
+
+                <!-- Address Card -->
+                <div class="lg:w-1/4 md:w-1/3 sm:w-1/2 bg-white rounded-lg p-6 flex flex-col shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Our Address</h2>
+                    <p class="leading-relaxed mb-5 text-gray-600">Visit us at:</p>
+                    <p class="text-gray-700 text-base font-semibold hover:text-indigo-500 transition duration-300 ease-in-out">
+                        UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh, PIN: 453771
+                    </p>
+                </div>
             </div>
         </div>
     </section>
-    <div class="fixed bottom-4 right-4 flex flex-col gap-4 z:30">
-        <!-- WhatsApp Icon -->
-        <a href="https://wa.me/+919111831966" target="_blank"
-           class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
-            <i class="bi bi-whatsapp text-2xl"></i>
-        </a>
-        <!-- Call Icon -->
-        <a href="tel:+919111831966"
-           class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
-            <i class="bi bi-telephone-fill text-2xl"></i>
-        </a>
-    </div>
 
 
-    <!-- About Section -->
-    <!-- About Us Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-            <!-- About Us Text -->
-            <div class="fade-in-up p-4">
-                <h2 class="text-3xl font-bold mb-4 text-yellow-600">About Us</h2>
-                <p class="text-gray-600 leading-loose">
-                    Solar Valley is a leading provider of renewable energy solutions, specializing in cutting-edge solar technology. Our mission is to empower communities with sustainable energy options, contributing to a greener and cleaner future for generations to come. With a team of experienced professionals, we are committed to delivering high-quality solar energy solutions that are both affordable and efficient. Our innovative approach and dedication to customer satisfaction have made us a trusted name in the industry.
-                </p>
-            </div>
-            <!-- Optimized Images -->
-            <div class="fade-in-up carousel flex justify-center items-center">
-                <img alt="Aerial view of solar panels installed on a large field under a clear blue sky"
-                     class="rounded-lg shadow-lg active max-w-[400px] max-h-[300px]"
-                     src="https://storage.googleapis.com/a1aa/image/gtTqFcKi3mLBKRc5hzZLaUxi0b6dWSPqDYYFuCdwdgbZ1qeJA.jpg"/>
-                <img alt="Close-up of solar panels on a rooftop with a bright sun in the background"
-                     class="rounded-lg shadow-lg max-w-[400px] max-h-[300px]"
-                     src="https://storage.googleapis.com/a1aa/image/wuy0e0PWSbzBMyzp5r2DXPZCGpr56E9EfZWY0govFGVqVr6TA.jpg"/>
-                <img alt="Solar panels on a commercial building with a cityscape in the background"
-                     class="rounded-lg shadow-lg max-w-[400px] max-h-[300px]"
-                     src="https://storage.googleapis.com/a1aa/image/tGg6X5AqneQNQKm9xRqmEY3VmeR9bs0efxBVw8W6HXaNWtqPB.jpg"/>
-                <img alt="Solar panels in a desert setting with mountains in the background"
-                     class="rounded-lg shadow-lg max-w-[400px] max-h-[300px]"
-                     th:src="${aboutUsHeader}"/>
-            </div>
-        </div>
-    </section>
-    <!-- Mission and Vision Section -->
-    <section class="py-16 bg-gradient text-gray-800">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="fade-in-up p-6 rounded-lg shadow-lg hover-scale bg-gradient-to-tr from-yellow-50 via-white to-yellow-100">
-                <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
-                <ul class="list-disc list-inside text-gray-800">
-                    <li>Provide high-quality, affordable solar energy solutions.</li>
-                    <li>Promote sustainability and reduce carbon footprints.</li>
-                    <li>Empower communities with renewable energy options.</li>
-                </ul>
-            </div>
-            <div class="fade-in-up p-6 rounded-lg shadow-lg hover-scale bg-gradient-to-tr from-yellow-50 via-white to-yellow-100">
-                <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
-                <ul class="list-disc list-inside text-gray-800">
-                    <li>Become a leader in solar energy innovation.</li>
-                    <li>Make renewable energy accessible to all.</li>
-                    <li>Foster a brighter and sustainable future.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- Work Process Section -->
-    <section class="py-16 bg-gray-100">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8 fade-in-up text-yellow-600">Our Work Process</h2>
-            <!-- What We Do and How We Do It -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- What We Do Card -->
-                <div class="relative p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up">
-                    <img alt="Solar panels on a residential rooftop with a clear blue sky" class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-30" src="https://storage.googleapis.com/a1aa/image/6FuRh0OUA8aGLtzEhwDmtqkKNkGtjaeEfzi7fRYKRe2U2SsPB.jpg"/>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-bold mb-4">What We Do</h3>
-                        <p class="text-gray-600">
-                            At Solar Valley, we specialize in providing comprehensive solar energy solutions. Our services include the design, installation, and maintenance of solar systems for both residential and commercial properties. We are dedicated to helping our clients transition to sustainable energy sources, reducing their carbon footprint, and achieving energy independence.
-                        </p>
-                    </div>
-                </div>
-                <!-- How We Do It Card -->
-                <div class="relative p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up">
-                    <img alt="Technicians installing solar panels on a commercial building" class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-30" src="https://storage.googleapis.com/a1aa/image/BNeCq4P2riT6UqbGTR0itTKniYVU6ZRsAnAHBoNgez5ntE7TA.jpg"/>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-bold mb-4">How We Do It</h3>
-                        <p class="text-gray-600">
-                            Our process is designed to ensure efficiency and quality at every step. We begin with a thorough site assessment to determine the best solar solutions for your needs. Our team then conducts a feasibility study to analyze energy output and cost efficiency. We create a customized 3D design of the solar panel layout and provide a detailed project quotation. Once approved, our skilled technicians handle the installation with precision and care. Finally, we commission the system to ensure optimal performance and provide ongoing maintenance support.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Work Steps Tree Structure -->
-            <div class="relative mt-12">
-                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-yellow-500 h-full"></div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="relative flex items-center justify-end">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">1</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Site Visit</h4>
-                            <p class="text-gray-600">We assess the site for solar panel installation suitability.</p>
-                        </div>
-                        <div class="absolute right-0 transform translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
-                    </div>
-                    <div class="relative flex items-center justify-start">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">2</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Feasibility Test</h4>
-                            <p class="text-gray-600">Conduct detailed analysis for energy output and cost efficiency.</p>
-                        </div>
-                        <div class="absolute left-0 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
-                    </div>
-                    <div class="relative flex items-center justify-end">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">3</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">3D Design</h4>
-                            <p class="text-gray-600">Develop a customized 3D model of the solar panel layout.</p>
-                        </div>
-                        <div class="absolute right-0 transform translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
-                    </div>
-                    <div class="relative flex items-center justify-start">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">4</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Quotation</h4>
-                            <p class="text-gray-600">Provide a transparent and detailed project quotation.</p>
-                        </div>
-                        <div class="absolute left-0 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
-                    </div>
-                    <div class="relative flex items-center justify-end">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">5</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Installation</h4>
-                            <p class="text-gray-600">Install the solar panels with precision and care.</p>
-                        </div>
-                        <div class="absolute right-0 transform translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
-                    </div>
-                    <div class="relative flex items-center justify-start">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">6</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Commissioning</h4>
-                            <p class="text-gray-600">Ensure everything is running smoothly and efficiently.</p>
-                        </div>
-                        <div class="absolute left-0 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
+
+
+
 
     <!-- Footer -->
     <footer class="relative text-white py-16 overflow-hidden">
