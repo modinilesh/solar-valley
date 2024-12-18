@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
@@ -100,7 +101,7 @@ public class UserServiceImpl implements UserService {
 
     private void sendEmail(User user){
         try {
-            Mail mail = new Mail(fromMail, user.getEmail(), getMailSubject(), EmailUtil.getMailBody(user));
+            Mail mail = new Mail("info@solarvalley.co.in", user.getEmail(), getMailSubject(), EmailUtil.getMailBody(user));
             emailService.sendEmail(mail, javaMailSender);
         } catch (Exception e) {
             LOGGER.error("Error occurred while sending mail to the user with username: "+ user.getFullName(), e);
