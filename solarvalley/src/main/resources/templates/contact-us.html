@@ -520,8 +520,15 @@
 
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 text-gray-800 py-12 relative"
-         th:style="'background-image: url(' + ${aboutUsHeader} + '); background-size: cover; background-position: center; background-repeat: no-repeat;'">
+<!-- Hero Section -->
+<section class="bg-blue-900 text-white h-screen relative">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://storage.googleapis.com/a1aa/image/xAidF3elSORMfkWLIfDZ4HE2Uo2STkvkPAQOIIBAEI0RrW1nA.jpg'); filter: brightness(0.7);"></div>
+    <div class="container mx-auto h-full flex flex-col justify-center items-center relative z-10 text-center">
+        <img src="https://solar-valley-production.up.railway.app/logo_solar_valley.svg" alt="Solar Valley Logo" class="w-32 mb-6">
+        <h1 class="text-5xl font-bold">Feel the Power of the Sun</h1>
+        <p class="text-lg mt-4">Innovative Solar Solutions Tailored for You</p>
+        <button class="mt-6 bg-yellow-500 px-6 py-3 text-lg rounded hover:bg-yellow-600">Explore Our Services</button>
+    </div>
     <button id="openSidebar" class="hover:text-yellow-400">
         <i class="bi bi-list text-2xl"></i>
     </button>
