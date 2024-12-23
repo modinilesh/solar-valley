@@ -313,17 +313,22 @@
                 <i class="bi bi-house-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">Home</span>
             </a>
-            <a href="#about"
+            <a href="/about-us"
                class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
                 <i class="bi bi-info-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">About Us</span>
+            </a>
+            <a href="/"
+               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-battery-charging text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">Our Services and Products</span>
             </a>
             <a href="#feedback"
                class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
                 <i class="bi bi-chat-dots-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">Customer Feedback</span>
             </a>
-            <a href="#contact"
+            <a href="/contact-us"
                class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
                 <i class="bi bi-envelope-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">Contact Us</span>
@@ -379,20 +384,20 @@
 <!--                </a>-->
 <!--            </div>-->
         </div>
-        <!-- Contact Icons Section -->
-        <div class="fixed bottom-4 right-4 flex flex-col gap-4">
-            <!-- WhatsApp Icon -->
-            <a href="https://wa.me/+919111831966" target="_blank"
-               class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
-                <i class="bi bi-whatsapp text-2xl"></i>
-            </a>
-            <!-- Call Icon -->
-            <a href="tel:+919111831966"
-               class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
-                <i class="bi bi-telephone-fill text-2xl"></i>
-            </a>
-        </div>
     </header>
+    <!-- Contact Icons Section -->
+    <div class="fixed bottom-4 right-4 flex flex-col gap-4 z-[9998]">
+        <!-- WhatsApp Icon -->
+        <a href="https://wa.me/+919111831966" target="_blank"
+           class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+            <i class="bi bi-whatsapp text-2xl"></i>
+        </a>
+        <!-- Call Icon -->
+        <a href="tel:+919111831966"
+           class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+            <i class="bi bi-telephone-fill text-2xl"></i>
+        </a>
+    </div>
 
     <!-- Hero Section -->
     <section class="relative bg-center bg-cover bg-no-repeat"
@@ -936,7 +941,7 @@
     <!--    </section>-->
 
 
-    <footer class="relative text-white py-16 overflow-hidden">
+    <footer class="relative z-[10000] text-white py-16 overflow-hidden">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
             <!--            <img th:src="${footer}"-->
@@ -1010,7 +1015,7 @@
         </div>
     </footer>
 
-    <div class="bottom-0 left-0 w-full bg-gray-800 text-white py-2 shadow-lg z-50">
+    <div class="bottom-0 left-0 w-full bg-gray-800 text-white py-2 shadow-lg relative z-[10000]">
         <div class="container mx-auto text-center">
             <p class="text-gray-300 text-sm font-medium">
                 &copy; 2023 Solar Valley Enterprises. All rights reserved.
