@@ -44,7 +44,7 @@ public class HomeController {
     @GetMapping("/contact-us")
     public String contactUsPage(Model model){
         modelUtility.setModel(model);
-        return "/contact-us";
+        return "contact-us";
     }
 
     @PostMapping("/contact-us")
