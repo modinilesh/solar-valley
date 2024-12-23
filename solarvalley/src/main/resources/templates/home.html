@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Valley - Renewable Energy Solutions</title>
+    <title>Solar Valley Enterprises - Renewable Energy Solutions</title>
     <link th:href="${logoUrl}" rel="icon" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -292,13 +292,14 @@
 </head>
 <body class="bg-gray-50">
 <!-- Sidebar -->
-<div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
+<div id="sidebar"
+     class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
     <div class="p-6">
         <!-- Header Section -->
         <div class="flex items-center justify-between mb-8">
             <div class="flex items-center">
-                <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 mr-2">
-                <span class="text-xl font-bold text-gray-700">Solar Valley</span>
+                <img th:src="${logoUrl}" alt="Solar Valley Enterprises" class="h-12 mr-2">
+                <span class="text-xl font-bold text-gray-700">ꜱᴏʟᴀʀ ᴠᴀʟʟᴇʏ ᴇɴᴛᴇʀᴘʀɪꜱᴇꜱ</span>
             </div>
             <button id="closeSidebar" class="text-gray-500 hover:text-gray-700">
                 <i class="bi bi-x-lg text-2xl"></i>
@@ -307,23 +308,33 @@
         <!-- Navigation Links -->
         <nav class="space-y-4">
             <!-- Home -->
-            <a href="/" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+            <a href="/"
+               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
                 <i class="bi bi-house-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">Home</span>
             </a>
-            <a href="#about" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+            <a href="/about-us"
+               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
                 <i class="bi bi-info-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">About Us</span>
             </a>
-            <a href="#feedback" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+            <a href="/"
+               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+                <i class="bi bi-battery-charging text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+                <span class="font-medium">Our Services and Products</span>
+            </a>
+            <a href="#feedback"
+               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
                 <i class="bi bi-chat-dots-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">Customer Feedback</span>
             </a>
-            <a href="#contact" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+            <a href="/contact-us"
+               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
                 <i class="bi bi-envelope-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">Contact Us</span>
             </a>
-            <a href="#faq" class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
+            <a href="#faq"
+               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
                 <i class="bi bi-question-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
                 <span class="font-medium">FAQs</span>
             </a>
@@ -354,82 +365,73 @@
 <!-- Main Content -->
 <div class="min-h-screen">
     <!-- Header -->
-    <header class="fixed top-0 w-full shadow-sm z-40" style="background-color: #ffdb4d;">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center text-white">
-            <button id="openSidebar" class="hover:text-yellow-400">
+    <header id="mainHeader" class="fixed top-0 w-full z-40 transition-all duration-300"
+            style="background-color: transparent;">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <button id="openSidebar" class="hover:text-green-400 text-white">
                 <i class="bi bi-list text-2xl"></i>
             </button>
-            <div class="flex items-center">
+            <div class="flex items-center justify-center flex-grow">
                 <!-- Logo -->
-                <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 mr-2">
+                <img th:src="${logoUrl}" alt="Solar Valley Enterprises" class="h-10 mr-2">
                 <!-- Text -->
-                <span class="text-xl font-bold">Solar Valley</span>
+                <span class="text-lg font-bold text-black">𝐒𝐨𝐥𝐚𝐫 𝐕𝐚𝐥𝐥𝐞𝐲 𝐄𝐧𝐭𝐞𝐫𝐩𝐫𝐢𝐬𝐞𝐬</span>
             </div>
 
-            <div class="flex gap-4">
-                <a href="#contact" class="bg-yellow-500 px-4 py-2 rounded-lg text-gray-900 hover:bg-yellow-600 shadow-md">Contact Us</a>
-            </div>
-        </div>
-        <!-- Contact Icons Section -->
-        <div class="fixed bottom-4 right-4 flex flex-col gap-4">
-            <!-- WhatsApp Icon -->
-            <a href="https://wa.me/+919111831966" target="_blank"
-               class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
-                <i class="bi bi-whatsapp text-2xl"></i>
-            </a>
-            <!-- Call Icon -->
-            <a href="tel:+919111831966"
-               class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
-                <i class="bi bi-telephone-fill text-2xl"></i>
-            </a>
+<!--            <div class="flex gap-4">-->
+<!--                <a href="#contact" class="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-600 shadow-md">-->
+<!--                    Contact Us-->
+<!--                </a>-->
+<!--            </div>-->
         </div>
     </header>
-
+    <!-- Contact Icons Section -->
+    <div class="fixed bottom-4 right-4 flex flex-col gap-4 z-[9998]">
+        <!-- WhatsApp Icon -->
+        <a href="https://wa.me/+919111831966" target="_blank"
+           class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+            <i class="bi bi-whatsapp text-2xl"></i>
+        </a>
+        <!-- Call Icon -->
+        <a href="tel:+919111831966"
+           class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+            <i class="bi bi-telephone-fill text-2xl"></i>
+        </a>
+    </div>
 
     <!-- Hero Section -->
     <section class="relative bg-center bg-cover bg-no-repeat"
-         th:style="'background-image: url(' + ${hero} + ');'">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- Overlay for text contrast -->
-    <div class="container mx-auto px-4 py-24 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center justify-between">
-            <!-- Text and Buttons Section -->
-            <div class="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                    Powering Tomorrow with Solar Solutions Today
-                </h1>
-                <p class="text-gray-200 text-lg mb-8">
-                    Complete solutions for solar installation, maintenance, inverters & batteries, and CCTV systems.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#services"
-                       class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 shadow-md">
-                        Our Services
-                    </a>
-                    <a href="#contact"
-                       class="border border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg hover:bg-yellow-50 shadow-md">
-                        Get Quote
-                    </a>
+             th:style="'background-image: url(' + ${hero} + ');'">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- Overlay for text contrast -->
+        <div class="container mx-auto px-4 py-24 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <!-- Text and Buttons Section -->
+                <div class="lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        Powering Tomorrow with Solar Solutions Today
+                    </h1>
+                    <p class="text-gray-200 text-lg mb-8">
+                        Complete solutions for solar installation, maintenance, inverters & batteries, and CCTV systems.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#services"
+                           class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 shadow-md">
+                            Our Services
+                        </a>
+                        <a href="#contact"
+                           class="border border-green-500 text-green-500 px-6 py-3 rounded-lg hover:bg-green-50 shadow-md">
+                            Get Quote
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Video Section -->
-<!--            <div class="lg:w-1/2 w-full">-->
-<!--                <div class="relative rounded-lg shadow-lg overflow-hidden" style="padding-top: 56.25%;">-->
-<!--                    <iframe class="absolute top-0 left-0 w-full h-full"-->
-<!--                            src="https://www.youtube.com/embed/od5yWB5aE0c?si=KtVlgantKHF-nhiT"-->
-<!--                            title="YouTube video player" frameborder="0"-->
-<!--                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"-->
-<!--                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Services Section -->
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+            <h2 class="text-3xl font-bold text-yellow-600 text-center mb-12">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service Card -->
                 <div
@@ -515,7 +517,7 @@
     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">About Us</h2>
+            <h2 class="text-3xl font-bold text-yellow-600 text-center mb-12">About Us</h2>
             <div class="flex flex-col lg:flex-row items-center gap-8">
                 <!-- Image Carousel -->
                 <div class="lg:w-1/2 relative">
@@ -542,12 +544,12 @@
                 <!-- About Content -->
                 <div class="lg:w-1/2">
                     <p class="text-gray-600 mb-4">
-                        At <b>Solar Valley</b>, we believe in empowering communities with sustainable energy solutions.
+                        At <b>Solar Valley Enterprises</b>, we believe in empowering communities with sustainable energy solutions.
                         Our mission is to make renewable energy accessible, reliable, and tailored to meet the needs of
                         homes and businesses alike.
                     </p>
                     <p class="text-gray-600 mb-4">
-                        Established with a passion for clean energy, Solar Valley has grown into a trusted partner for
+                        Established with a passion for clean energy, Solar Valley Enterprises has grown into a trusted partner for
                         solar installations, maintenance, and consultation. We pride ourselves on delivering
                         high-quality service, ensuring every project not only meets but exceeds expectations.
                     </p>
@@ -562,95 +564,95 @@
     </section>
 
     <!-- Founders Section -->
-<!--    <section id="founders" class="py-16 bg-white">-->
-<!--        <div class="container mx-auto px-6">-->
-<!--            <h2 class="text-3xl font-bold text-center mb-12">Our Founders</h2>-->
-<!--            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">-->
-<!--                &lt;!&ndash; Founder Card &ndash;&gt;-->
-<!--                <div-->
-<!--                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"-->
-<!--                >-->
-<!--                    <div class="flex flex-col md:flex-row">-->
-<!--                        &lt;!&ndash; Image Section &ndash;&gt;-->
-<!--                        <div class="md:w-1/3">-->
-<!--                            <img-->
-<!--                                    th:src="${founder1}"-->
-<!--                                    alt="Jitendra Modi"-->
-<!--                                    class="w-full h-full object-cover"-->
-<!--                            />-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; Content Section &ndash;&gt;-->
-<!--                        <div class="p-6 flex-1">-->
-<!--                            <h3 class="text-2xl font-semibold mb-2">Jitendra Modi</h3>-->
-<!--                            <p class="text-sm text-yellow-500 mb-4">CEO & Technical Director</p>-->
-<!--                            <p class="text-gray-600 mb-4">-->
-<!--                                With over 15 years of experience in the tech and solar industry, He has successfully-->
-<!--                                handled 10+ solar projects nationwide, helping countless businesses and homes transition-->
-<!--                                to renewable energy.-->
-<!--                            </p>-->
-<!--                            <p class="text-gray-600 text-sm italic">-->
-<!--                                "Empowering the world with sustainable energy solutions."-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+    <!--    <section id="founders" class="py-16 bg-white">-->
+    <!--        <div class="container mx-auto px-6">-->
+    <!--            <h2 class="text-3xl font-bold text-center mb-12">Our Founders</h2>-->
+    <!--            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">-->
+    <!--                &lt;!&ndash; Founder Card &ndash;&gt;-->
+    <!--                <div-->
+    <!--                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"-->
+    <!--                >-->
+    <!--                    <div class="flex flex-col md:flex-row">-->
+    <!--                        &lt;!&ndash; Image Section &ndash;&gt;-->
+    <!--                        <div class="md:w-1/3">-->
+    <!--                            <img-->
+    <!--                                    th:src="${founder1}"-->
+    <!--                                    alt="Jitendra Modi"-->
+    <!--                                    class="w-full h-full object-cover"-->
+    <!--                            />-->
+    <!--                        </div>-->
+    <!--                        &lt;!&ndash; Content Section &ndash;&gt;-->
+    <!--                        <div class="p-6 flex-1">-->
+    <!--                            <h3 class="text-2xl font-semibold mb-2">Jitendra Modi</h3>-->
+    <!--                            <p class="text-sm text-yellow-500 mb-4">CEO & Technical Director</p>-->
+    <!--                            <p class="text-gray-600 mb-4">-->
+    <!--                                With over 15 years of experience in the tech and solar industry, He has successfully-->
+    <!--                                handled 10+ solar projects nationwide, helping countless businesses and homes transition-->
+    <!--                                to renewable energy.-->
+    <!--                            </p>-->
+    <!--                            <p class="text-gray-600 text-sm italic">-->
+    <!--                                "Empowering the world with sustainable energy solutions."-->
+    <!--                            </p>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
 
-<!--                &lt;!&ndash; Founder Card &ndash;&gt;-->
-<!--                <div-->
-<!--                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"-->
-<!--                >-->
-<!--                    <div class="flex flex-col md:flex-row">-->
-<!--                        &lt;!&ndash; Image Section &ndash;&gt;-->
-<!--                        <div class="md:w-1/3">-->
-<!--                            <img-->
-<!--                                    th:src="${logoUrl}"-->
-<!--                                    alt="Hemant Mimrot"-->
-<!--                                    class="w-full h-full object-cover"-->
-<!--                            />-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; Content Section &ndash;&gt;-->
-<!--                        <div class="p-6 flex-1">-->
-<!--                            <h3 class="text-2xl font-semibold mb-2">Hemant Mimrot</h3>-->
-<!--                            <p class="text-sm text-yellow-500 mb-4">COO & Innovation Lead</p>-->
-<!--                            <p class="text-gray-600 mb-4">-->
-<!--                                Sarah is an innovator with a passion for clean energy solutions. He has spearheaded-->
-<!--                                multiple groundbreaking initiatives, leading the company to receive several sustainability-->
-<!--                                awards.-->
-<!--                            </p>-->
-<!--                            <p class="text-gray-600 text-sm italic">-->
-<!--                                "Innovation is the key to a brighter, greener future."-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+    <!--                &lt;!&ndash; Founder Card &ndash;&gt;-->
+    <!--                <div-->
+    <!--                        class="bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg hover:scale-105"-->
+    <!--                >-->
+    <!--                    <div class="flex flex-col md:flex-row">-->
+    <!--                        &lt;!&ndash; Image Section &ndash;&gt;-->
+    <!--                        <div class="md:w-1/3">-->
+    <!--                            <img-->
+    <!--                                    th:src="${logoUrl}"-->
+    <!--                                    alt="Hemant Mimrot"-->
+    <!--                                    class="w-full h-full object-cover"-->
+    <!--                            />-->
+    <!--                        </div>-->
+    <!--                        &lt;!&ndash; Content Section &ndash;&gt;-->
+    <!--                        <div class="p-6 flex-1">-->
+    <!--                            <h3 class="text-2xl font-semibold mb-2">Hemant Mimrot</h3>-->
+    <!--                            <p class="text-sm text-yellow-500 mb-4">COO & Innovation Lead</p>-->
+    <!--                            <p class="text-gray-600 mb-4">-->
+    <!--                                Sarah is an innovator with a passion for clean energy solutions. He has spearheaded-->
+    <!--                                multiple groundbreaking initiatives, leading the company to receive several sustainability-->
+    <!--                                awards.-->
+    <!--                            </p>-->
+    <!--                            <p class="text-gray-600 text-sm italic">-->
+    <!--                                "Innovation is the key to a brighter, greener future."-->
+    <!--                            </p>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
 
 
     <!-- Certifications Section -->
-<!--    <section id="certifications" class="py-16 bg-white">-->
-<!--        <div class="container mx-auto px-4">-->
-<!--            <h2 class="text-3xl font-bold text-center mb-12">Our Certifications</h2>-->
-<!--            <div class="scroll-container flex overflow-x-auto gap-8 pb-4">-->
-<!--                <div class="scroll-item flex-none w-64 p-6 bg-white rounded-lg shadow-md">-->
-<!--                    <i class="bi bi-award text-4xl text-yellow-500 mb-4 block text-center"></i>-->
-<!--                    <h3 class="text-xl font-semibold text-center mb-2">ISO 9001:2015</h3>-->
-<!--                    <p class="text-gray-600 text-center">Quality Management System</p>-->
-<!--                </div>-->
-<!--                <div class="scroll-item flex-none w-64 p-6 bg-white rounded-lg shadow-md">-->
-<!--                    <i class="bi bi-award text-4xl text-yellow-500 mb-4 block text-center"></i>-->
-<!--                    <h3 class="text-xl font-semibold text-center mb-2">Solar PV Installation</h3>-->
-<!--                    <p class="text-gray-600 text-center">Certified Installer</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+    <!--    <section id="certifications" class="py-16 bg-white">-->
+    <!--        <div class="container mx-auto px-4">-->
+    <!--            <h2 class="text-3xl font-bold text-center mb-12">Our Certifications</h2>-->
+    <!--            <div class="scroll-container flex overflow-x-auto gap-8 pb-4">-->
+    <!--                <div class="scroll-item flex-none w-64 p-6 bg-white rounded-lg shadow-md">-->
+    <!--                    <i class="bi bi-award text-4xl text-yellow-500 mb-4 block text-center"></i>-->
+    <!--                    <h3 class="text-xl font-semibold text-center mb-2">ISO 9001:2015</h3>-->
+    <!--                    <p class="text-gray-600 text-center">Quality Management System</p>-->
+    <!--                </div>-->
+    <!--                <div class="scroll-item flex-none w-64 p-6 bg-white rounded-lg shadow-md">-->
+    <!--                    <i class="bi bi-award text-4xl text-yellow-500 mb-4 block text-center"></i>-->
+    <!--                    <h3 class="text-xl font-semibold text-center mb-2">Solar PV Installation</h3>-->
+    <!--                    <p class="text-gray-600 text-center">Certified Installer</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
 
     <!-- Customer Feedback Section -->
     <section id="feedback" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in-up">Customer Feedback</h2>
+            <h2 class="text-3xl font-bold text-yellow-600 text-center mb-12 animate-fade-in-up">Customer Feedback</h2>
             <div class="scroll-container flex overflow-x-auto gap-8 pb-4 relative">
                 <!-- Feedback 1 -->
                 <div class="scroll-item flex-none w-80 p-6 bg-gradient-to-b from-white to-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
@@ -666,7 +668,9 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600">"A trusted name in Solar Industry, Well Known for their high-quality solar panels that are efficient and durable. This Solar panels can be a worthwhile investment for a long-term renewable energy solution."</p>
+                    <p class="text-gray-600">"A trusted name in Solar Industry, Well Known for their high-quality solar
+                        panels that are efficient and durable. This Solar panels can be a worthwhile investment for a
+                        long-term renewable energy solution."</p>
                 </div>
                 <!-- Feedback 2 -->
                 <div class="scroll-item flex-none w-80 p-6 bg-gradient-to-b from-white to-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
@@ -682,14 +686,16 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600">"Excellent quality product and service. Performance of solar panel is good and running satisfactorily without any issues."</p>
+                    <p class="text-gray-600">"Excellent quality product and service. Performance of solar panel is good
+                        and running satisfactorily without any issues."</p>
                 </div>
                 <!-- Add Your Review -->
                 <div class="scroll-item flex-none w-80 p-6 bg-yellow-50 rounded-lg shadow-lg hover: bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 hover:shadow-xl transition-transform transform hover:scale-105">
                     <div class="flex flex-col items-center">
                         <i class="bi bi-pencil-square text-4xl text-yellow-500 mb-4"></i>
                         <h4 class="font-semibold text-lg text-center mb-2 text-gray-700">Add Your Review</h4>
-                        <p class="text-gray-600 text-center mb-4">Share your experience with us and help others make informed decisions.</p>
+                        <p class="text-gray-600 text-center mb-4">Share your experience with us and help others make
+                            informed decisions.</p>
                         <a href="https://www.google.com/search?q=SOLAR+VALLEY+ENTERPRISES&ludocid=7231226633326685770&sa=X&ved=2ahUKEwjN0cDcp4yKAxWL1TgGHZDYE5YQ_coHegQIKBAB&sxsrf=ADLYWIJ3yPZa1bL4cFDy2IWZoD29tfNWqw:1733253305221#lkt=LocalPoiReviews&lpg=cid:CgIgAQ%3D%3D&lrd=0x39631df57fb2e9b3:0x645a7a4f71c7ee4a,3,,,,"
                            class="inline-block bg-yellow-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-yellow-600 hover:ring-4 hover:ring-yellow-300 transition"
                            target="_blank"
@@ -713,64 +719,73 @@
     <section id="partners" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
             <!-- Section Title -->
-            <h2 class="text-3xl font-bold text-center mb-12">Our Associated Partners</h2>
+            <h2 class="text-3xl font-bold text-yellow-600 text-center mb-12">Our Associated Partners</h2>
 
             <!-- Partners Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-12">
                 <!-- Partner Logo 1 -->
                 <div class="partner-logo group relative">
-                    <img th:src="${p1}" alt="Partner 1" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                    <img th:src="${p1}" alt="Partner 1"
+                         class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
                 </div>
 
                 <!-- Partner Logo 2 -->
                 <div class="partner-logo group relative">
-                    <img th:src="${p2}" alt="Partner 2" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                    <img th:src="${p2}" alt="Partner 2"
+                         class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
                 </div>
 
                 <!-- Partner Logo 3 -->
                 <div class="partner-logo group relative">
-                    <img th:src="${p3}" alt="Partner 3" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                    <img th:src="${p3}" alt="Partner 3"
+                         class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
                 </div>
 
                 <!-- Partner Logo 4 -->
                 <div class="partner-logo group relative">
-                    <img th:src="${p4}" alt="Partner 4" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                    <img th:src="${p4}" alt="Partner 4"
+                         class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
                 </div>
 
                 <!-- Partner Logo 5 -->
                 <div class="partner-logo group relative">
-                    <img th:src="${p5}" alt="Partner 5" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                    <img th:src="${p5}" alt="Partner 5"
+                         class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
                 </div>
 
                 <!-- Partner Logo 6 -->
                 <div class="partner-logo group relative">
-                    <img th:src="${p6}" alt="Partner 6" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                    <img th:src="${p6}" alt="Partner 6"
+                         class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
                 </div>
                 <!-- Partner Logo 7 -->
                 <div class="partner-logo group relative">
-                    <img th:src="${p7}" alt="Partner 7" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                    <img th:src="${p7}" alt="Partner 7"
+                         class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
                 </div>
 
                 <!-- Partner Logo 7 -->
                 <div class="partner-logo group relative">
-                    <img th:src="${p8}" alt="Partner 8" class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                    <img th:src="${p8}" alt="Partner 8"
+                         class="w-full h-auto transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg">
                 </div>
             </div>
         </div>
     </section>
 
 
-
     <!-- Contact and FAQ Section -->
     <section id="contact-faq" class="py-16 bg-gray-50">
         <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- Contact Section -->
-            <div id="contact" class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-8 rounded-lg shadow-lg animate-fadeIn">
+            <div id="contact"
+                 class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-8 rounded-lg shadow-lg animate-fadeIn">
                 <h2 class="text-4xl font-extrabold text-yellow-600 mb-6 text-center">Get in Touch</h2>
                 <div id="messageBox" class="max-w-2xl mx-auto mb-6">
                     <!-- Success Message -->
                     <div th:if="${successMessage != null}"
-                         class="bg-green-100 border border-green-500 text-green-700 px-4 py-3 rounded mb-4" id="successMessage">
+                         class="bg-green-100 border border-green-500 text-green-700 px-4 py-3 rounded mb-4"
+                         id="successMessage">
                         <p th:text="${successMessage}"></p>
                     </div>
 
@@ -780,7 +795,8 @@
                         <p th:text="${errorMessage}"></p>
                     </div>
                 </div>
-                <p class="text-gray-700 mb-8 text-center">We'd love to hear from you! Fill out the form and we'll get back to you promptly.</p>
+                <p class="text-gray-700 mb-8 text-center">We'd love to hear from you! Fill out the form and we'll get
+                    back to you promptly.</p>
                 <form class="space-y-6" action="/contact-us" method="POST">
                     <div>
                         <label class="block text-gray-600 mb-2 font-medium">Name</label>
@@ -807,13 +823,16 @@
                                   rows="4"></textarea>
                     </div>
                     <button type="submit"
-                            class="w-full bg-yellow-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300">Send
-                        Message</button>
+                            class="w-full bg-yellow-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300">
+                        Send
+                        Message
+                    </button>
                 </form>
             </div>
 
             <!-- FAQ Section -->
-            <div id="faq" class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-8 rounded-lg shadow-lg animate-fadeIn">
+            <div id="faq"
+                 class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 p-8 rounded-lg shadow-lg animate-fadeIn">
                 <h2 class="text-4xl font-extrabold text-yellow-600 mb-6 text-center">Frequently Asked Questions</h2>
                 <div class="max-w-3xl mx-auto space-y-4">
                     <div class="border rounded-lg p-4">
@@ -822,7 +841,8 @@
                             <i class="bi bi-plus"></i>
                         </button>
                         <div class="faq-content hidden mt-4 text-gray-600">
-                            Typical residential installations take 1-3 days, depending on the system size and complexity.
+                            Typical residential installations take 1-3 days, depending on the system size and
+                            complexity.
                         </div>
                     </div>
                     <div class="border rounded-lg p-4">
@@ -840,7 +860,8 @@
                             <i class="bi bi-plus"></i>
                         </button>
                         <div class="faq-content hidden mt-4 text-gray-600">
-                            The cost varies based on the system size, location, and installation complexity. Contact us for
+                            The cost varies based on the system size, location, and installation complexity. Contact us
+                            for
                             a free estimate.
                         </div>
                     </div>
@@ -850,7 +871,8 @@
                             <i class="bi bi-plus"></i>
                         </button>
                         <div class="faq-content hidden mt-4 text-gray-600">
-                            Most solar panels come with a 25-year performance warranty, ensuring their efficiency for years
+                            Most solar panels come with a 25-year performance warranty, ensuring their efficiency for
+                            years
                             to come.
                         </div>
                     </div>
@@ -860,7 +882,9 @@
                             <i class="bi bi-plus"></i>
                         </button>
                         <div class="faq-content hidden mt-4 text-gray-600">
-                            Yes, solar panels still generate electricity in cloudy or rainy weather, though their efficiency may be slightly reduced. Modern solar panels are designed to work efficiently in diffused sunlight, so they continue to produce energy even on overcast days.
+                            Yes, solar panels still generate electricity in cloudy or rainy weather, though their
+                            efficiency may be slightly reduced. Modern solar panels are designed to work efficiently in
+                            diffused sunlight, so they continue to produce energy even on overcast days.
                         </div>
                     </div>
                 </div>
@@ -874,53 +898,53 @@
     </section>
 
     <!-- Features Section -->
-<!--    <section id="features" class="bg-white py-20">-->
-<!--        <div class="container mx-auto px-6">-->
-<!--            <h2 class="text-4xl font-bold text-center mb-12">Why Choose Solar Valley?</h2>-->
-<!--            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">-->
-<!--                &lt;!&ndash; Feature 1 &ndash;&gt;-->
-<!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
-<!--                    <div class="mb-4">-->
-<!--                        <i class="bi bi-sun text-4xl text-yellow-500"></i>-->
-<!--                    </div>-->
-<!--                    <h3 class="text-xl font-semibold mb-2">Custom Solar Installations</h3>-->
-<!--                    <p class="text-gray-600">Tailored solar panel setups designed to meet your unique energy needs and maximize savings.</p>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; Feature 2 &ndash;&gt;-->
-<!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
-<!--                    <div class="mb-4">-->
-<!--                        <i class="bi bi-tools text-4xl text-yellow-500"></i>-->
-<!--                    </div>-->
-<!--                    <h3 class="text-xl font-semibold mb-2">Comprehensive Maintenance</h3>-->
-<!--                    <p class="text-gray-600">Reliable maintenance services to ensure your solar systems perform at peak efficiency.</p>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; Feature 3 &ndash;&gt;-->
-<!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
-<!--                    <div class="mb-4">-->
-<!--                        <i class="bi bi-battery-charging text-4xl text-yellow-500"></i>-->
-<!--                    </div>-->
-<!--                    <h3 class="text-xl font-semibold mb-2">Energy Storage Solutions</h3>-->
-<!--                    <p class="text-gray-600">Store excess energy with our advanced battery systems for uninterrupted power supply.</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+    <!--    <section id="features" class="bg-white py-20">-->
+    <!--        <div class="container mx-auto px-6">-->
+    <!--            <h2 class="text-4xl font-bold text-center mb-12">Why Choose Solar Valley Enterprises?</h2>-->
+    <!--            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">-->
+    <!--                &lt;!&ndash; Feature 1 &ndash;&gt;-->
+    <!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
+    <!--                    <div class="mb-4">-->
+    <!--                        <i class="bi bi-sun text-4xl text-yellow-500"></i>-->
+    <!--                    </div>-->
+    <!--                    <h3 class="text-xl font-semibold mb-2">Custom Solar Installations</h3>-->
+    <!--                    <p class="text-gray-600">Tailored solar panel setups designed to meet your unique energy needs and maximize savings.</p>-->
+    <!--                </div>-->
+    <!--                &lt;!&ndash; Feature 2 &ndash;&gt;-->
+    <!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
+    <!--                    <div class="mb-4">-->
+    <!--                        <i class="bi bi-tools text-4xl text-yellow-500"></i>-->
+    <!--                    </div>-->
+    <!--                    <h3 class="text-xl font-semibold mb-2">Comprehensive Maintenance</h3>-->
+    <!--                    <p class="text-gray-600">Reliable maintenance services to ensure your solar systems perform at peak efficiency.</p>-->
+    <!--                </div>-->
+    <!--                &lt;!&ndash; Feature 3 &ndash;&gt;-->
+    <!--                <div class="text-center p-6 bg-gray-100 rounded-lg shadow">-->
+    <!--                    <div class="mb-4">-->
+    <!--                        <i class="bi bi-battery-charging text-4xl text-yellow-500"></i>-->
+    <!--                    </div>-->
+    <!--                    <h3 class="text-xl font-semibold mb-2">Energy Storage Solutions</h3>-->
+    <!--                    <p class="text-gray-600">Store excess energy with our advanced battery systems for uninterrupted power supply.</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
 
     <!-- Call to Action -->
-<!--    <section class="py-12 " style="background-color: #ffdb4d;">-->
-<!--        <div class="container mx-auto px-6 text-center">-->
-<!--            <h2 class="text-3xl font-bold text-white mb-4">Ready to Take the Next Step?</h2>-->
-<!--            <p class="text-white text-lg mb-6">Contact us today to learn more about our tailored solar solutions.</p>-->
-<!--            <a href="#contact" class="bg-white text-yellow-500 px-6 py-3 rounded-lg text-lg hover:bg-yellow-50">Get in-->
-<!--                Touch</a>-->
-<!--        </div>-->
-<!--    </section>-->
+    <!--    <section class="py-12 " style="background-color: #ffdb4d;">-->
+    <!--        <div class="container mx-auto px-6 text-center">-->
+    <!--            <h2 class="text-3xl font-bold text-white mb-4">Ready to Take the Next Step?</h2>-->
+    <!--            <p class="text-white text-lg mb-6">Contact us today to learn more about our tailored solar solutions.</p>-->
+    <!--            <a href="#contact" class="bg-white text-yellow-500 px-6 py-3 rounded-lg text-lg hover:bg-yellow-50">Get in-->
+    <!--                Touch</a>-->
+    <!--        </div>-->
+    <!--    </section>-->
 
 
-    <footer class="relative text-white py-16 overflow-hidden">
+    <footer class="relative z-[10000] text-white py-16 overflow-hidden">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-<!--            <img th:src="${footer}"-->
+            <!--            <img th:src="${footer}"-->
             <img src="https://storage.googleapis.com/a1aa/image/xAidF3elSORMfkWLIfDZ4HE2Uo2STkvkPAQOIIBAEI0RrW1nA.jpg"
                  alt="Solar Panels Background"
                  class="w-full h-full object-cover">
@@ -932,9 +956,11 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 animate-fadeIn">
                 <!-- About Us Section -->
                 <div class="group">
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Solar Valley</h3>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Solar
+                        Valley Enterprises</h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        Powering a brighter tomorrow with sustainable and cutting-edge solar solutions. Join us in creating a greener future.
+                        Powering a brighter tomorrow with sustainable and cutting-edge solar solutions. Join us in
+                        creating a greener future.
                     </p>
                 </div>
 
@@ -953,28 +979,34 @@
                         <li class="flex items-center">
                             <i class="bi bi-geo-alt-fill text-yellow-400 mr-2"></i>
                             <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z/data=!4m2!3m1!1s0x0:0x645a7a4f71c7ee4a?sa=X&ved=1t:2428&ictx=111&cshid=1733656743254160"
-                               class="hover:text-yellow-400 transition">UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh, pin:453771</a>
+                               class="hover:text-yellow-400 transition">UGF 08, Galleria, Ansal Town, Talawali Chanda,
+                                Indore, Madhya Pradesh, pin:453771</a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Follow Us Section -->
                 <div class="group">
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Follow Us</h3>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Follow
+                        Us</h3>
                     <p class="text-gray-300 text-sm mb-4">
                         Stay connected for the latest updates and offers:
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                        <a href="#"
+                           class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
                             <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                        <a href="#"
+                           class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
                             <i class="bi bi-instagram"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                        <a href="#"
+                           class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
                             <i class="bi bi-linkedin"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                        <a href="#"
+                           class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
                             <i class="bi bi-youtube"></i>
                         </a>
                     </div>
@@ -983,16 +1015,35 @@
         </div>
     </footer>
 
-    <div class="bottom-0 left-0 w-full bg-gray-800 text-white py-2 shadow-lg z-50">
+    <div class="bottom-0 left-0 w-full bg-gray-800 text-white py-2 shadow-lg relative z-[10000]">
         <div class="container mx-auto text-center">
             <p class="text-gray-300 text-sm font-medium">
-                &copy; 2023 Solar Valley. All rights reserved.
+                &copy; 2023 Solar Valley Enterprises. All rights reserved.
             </p>
         </div>
     </div>
 </div>
 
 <script>
+    const header = document.getElementById('mainHeader');
+const heroSection = document.querySelector('section');
+const sidebarButton = document.getElementById('openSidebar');
+
+window.addEventListener('scroll', () => {
+    const heroHeight = heroSection.offsetHeight;
+    if (window.scrollY > heroHeight) {
+        header.classList.add('bg-white/70', 'backdrop-blur-md');
+        sidebarButton.classList.remove('text-white');
+        sidebarButton.classList.add('text-black');
+    } else {
+        header.classList.remove('bg-white/70', 'backdrop-blur-md');
+        sidebarButton.classList.remove('text-black');
+        sidebarButton.classList.add('text-white');
+    }
+});
+
+
+
     // Sidebar Toggle
     const sidebar = document.querySelector('.sidebar');
     const openButton = document.getElementById('openSidebar');
