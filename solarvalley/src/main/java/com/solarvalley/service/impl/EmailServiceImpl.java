@@ -11,6 +11,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 
@@ -36,8 +38,8 @@ public class EmailServiceImpl implements EmailService {
             helper.setText(mail.getMessageBody(), true);
 
             // Add the image as an inline attachment
-            FileSystemResource res = new FileSystemResource(new File("src/main/resources/static/logo.jpg"));
-            helper.addInline("solarLogo", res);
+            Resource resource = new ClassPathResource("static/logo.jpg");
+            helper.addInline("solarLogo", resource);
 
             mailSender.send(mimeMessage);
             LOGGER.info(String.format("Successfully email send to the user with email: %s", mail.getTo()));
