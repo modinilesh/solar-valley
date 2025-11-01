@@ -3,741 +3,731 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Valley Enterprises - Renewable Energy Solutions</title>
+    <title>About Us - Solar Valley Enterprises</title>
     <link th:href="${logoUrl}" rel="icon" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
+
+        :root {
+            --primary-green: #0F5132;
+            --secondary-green: #198754;
+            --accent-amber: #F59E0B;
+            --light-amber: #FEF3C7;
+        }
+
+        /* Sidebar Styles */
         .sidebar {
             transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
         }
+
         .sidebar.active {
             transform: translateX(0);
         }
-        .scroll-container {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .scroll-item {
-            scroll-snap-align: start;
-        }
-        .success-message,
-        .error-message {
-            max-width: 90%; /* Slightly wider than the form */
-            margin: 0 auto; /* Center aligns the messages */
-            border-left-width: 6px; /* Add slight emphasis to the border */
-            padding-left: 1rem; /* Adjust padding for better spacing */
-            font-size: 0.95rem; /* Ensure the text size is readable */
+
+        .sidebar nav a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--accent-amber);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
         }
 
-        /* General Sidebar Styling */
-.sidebar {
-    background-color: #ffffff; /* Clean white background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: 16rem; /* Fixed width for the sidebar */
-    transition: transform 0.3s ease-in-out; /* Smooth open/close transition */
-}
-
-/* Navigation Link Styles */
-.sidebar nav a {
-    display: flex;
-    align-items: center;
-    color: #4A5568; /* Cool gray text */
-    text-decoration: none;
-    font-size: 1rem; /* Comfortable font size */
-    font-weight: 500; /* Medium weight for emphasis */
-}
-
-.sidebar nav a:hover {
-    background-color: #FEF3C7; /* Light yellow hover background */
-    color: #D97706; /* Golden text on hover */
-}
-
-.sidebar nav a i {
-    transition: color 0.3s ease-in-out; /* Smooth icon color transition */
-}
-
-/* Close Button */
-#closeSidebar {
-    font-size: 1.25rem; /* Larger close icon */
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* Open/Close Animations */
-#sidebar.open {
-    transform: translateX(0); /* Slide in */
-}
-
-#sidebar.closed {
-    transform: translateX(-100%); /* Slide out */
-}
-
-
-
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .scroll-container::-webkit-scrollbar {
-            display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .scroll-container {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .sidebar nav a:hover::before {
+            transform: scaleY(1);
         }
 
-        /* Keyframes for fade-in animation */
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* Animation Classes */
-        .animate-fade-in {
-          animation: fade-in 0.8s ease forwards;
-        }
-
-        /* Add delay to animations for staggered effect */
-        .delay-100 {
-          animation-delay: 0.1s;
-        }
-        .delay-300 {
-          animation-delay: 0.3s;
-        }
-<!--Services -->
-        /* Card Hover Effect */
-        .card:hover {
-          transform: scale(1.05);
-          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-          background-color: #f5c85c;
-        }
-        /* Responsive Container */
-          .container {
-            max-width: 1200px;
-          }
-
-          /* Card Hover Effects */
-          .hover\:scale-105:hover {
-            transform: scale(1.05);
-            background-color: #f5c85c;
-          }
-
-           /*Smooth Transition for Hover */
-          .transition {
-            transition: all 0.3s ease-in-out;
-          }
-          .bg-fixed {
-        background-attachment: fixed;
-    }
-
-     /*Mobile optimization */
-    @media (max-width: 1024px) {
-        .bg-fixed {
-            background-attachment: scroll;
-        }
-    }
-
-<!--        footer-->
-        @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-.animate-spin-slow {
-    animation: spin 20s linear infinite;
-}
-.bg-gradient-to-b {
-    background: linear-gradient(to bottom, #FFD700, #FF8C00, #1A202C);
-}
-.hover\:text-yellow-300:hover {
-    color: #FFD700;
-
-}
-<!--        footer-->
-        .footer-gif {
-    position: absolute;
-    inset: 0;
-    object-fit: cover;
-    opacity: 0.5; /* Adjust for readability */
-    z-index: -1; /* Push behind content */
-}
-
-.footer-content {
-    position: relative;
-    z-index: 1;
-    color: #FFD700;
-}
-
-.footer-icon:hover {
-    color: #ffffff; /* Subtle white hover effect for icons */
-}
-.footer-strip {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333; /* Adjust for preferred shade */
-    color: #ccc;
-    font-size: 0.875rem; /* Equivalent to text-sm */
-    font-weight: 500; /* Medium weight */
-    padding: 0.5rem 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle top shadow */
-    z-index: 9999; /* Ensures it stays above all elements */
-}
-
-        <!-- Add Animations -->
-    <style>
-        .animate-fadeIn {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* General Styling for the Partners Section */
-#partners {
-  background-color: #f7fafc;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-#partners h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #2d3748;
-}
-
-/* Grid Layout for Partner Logos */
-.partner-logo img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  object-fit: contain; /* Ensures logos scale well */
-  max-height: 100px; /* Control max height */
-  margin: 0 auto; /* Centering the logos */
-}
-
-/* Hover Effect: Scale and Shadow */
-.partner-logo:hover img {
-  transform: scale(1.05);
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.group:hover img {
-  transform: scale(1.1); /* Slight increase in size */
-  filter: brightness(1.1); /* Slight brightening effect */
-}
-
-/* Responsive Grid Layout */
-@media (min-width: 640px) {
-  .grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 768px) {
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-cols-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (min-width: 1280px) {
-  .grid-cols-6 {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-<!--feedback card dot indication-->
-   .dot {
-        background-color: #D1D5DB; /* Tailwind's gray-400 */
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        margin: 0 4px;
-        transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .dot.active {
-        background-color: #F59E0B; /* Tailwind's yellow-500 */
-        transform: scale(1.3);
-    }
-    </style>
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-         /* General Sidebar Styling */
-.sidebar {
-    background-color: #ffffff; /* Clean white background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: 16rem; /* Fixed width for the sidebar */
-    transition: transform 0.3s ease-in-out; /* Smooth open/close transition */
-}
-
-/* Navigation Link Styles */
-.sidebar nav a {
-    display: flex;
-    align-items: center;
-    color: #4A5568; /* Cool gray text */
-    text-decoration: none;
-    font-size: 1rem; /* Comfortable font size */
-    font-weight: 500; /* Medium weight for emphasis */
-}
-
-.sidebar nav a:hover {
-    background-color: #FEF3C7; /* Light yellow hover background */
-    color: #D97706; /* Golden text on hover */
-}
-
-.sidebar nav a i {
-    transition: color 0.3s ease-in-out; /* Smooth icon color transition */
-}
-
-/* Close Button */
-#closeSidebar {
-    font-size: 1.25rem; /* Larger close icon */
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* Open/Close Animations */
-#sidebar.open {
-    transform: translateX(0); /* Slide in */
-}
-
-#sidebar.closed {
-    transform: translateX(-100%); /* Slide out */
-}
-
-
-
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .scroll-container::-webkit-scrollbar {
-            display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .scroll-container {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Keyframes for fade-in animation */
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* Animation Classes */
-        .animate-fade-in {
-          animation: fade-in 0.8s ease forwards;
-        }
-
-        /* Add delay to animations for staggered effect */
-        .delay-100 {
-          animation-delay: 0.1s;
-        }
-        .delay-300 {
-          animation-delay: 0.3s;
-        }
-
-
-        /* Custom Animations */
-        .fade-in-up {
-            animation: fadeInUp 1s ease-in-out;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .hover-scale:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
-        }
-        .carousel {
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(15, 81, 50, 0.95) 0%, rgba(25, 135, 84, 0.9) 100%);
             position: relative;
             overflow: hidden;
         }
-        .carousel img {
-            width: 100%;
-            height: auto;
-            display: none;
-        }
-        .carousel img.active {
-            display: block;
-        }
-        .hover-bg:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: background-color 0.3s ease-in-out;
-        }
-        .bg-gradient {
-            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 50%, #fef08a 100%);
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
 
-        .footer-gif {
-            position: absolute;
-            inset: 0;
-            object-fit: cover;
-            opacity: 0.5; /* Adjust for readability */
-            z-index: -1; /* Push behind content */
-        }
-        .footer-content {
+        /* Stats Counter */
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
             position: relative;
-            z-index: 1;
-            color: #FFD700;
+            overflow: hidden;
         }
-        .footer-icon:hover {
-            color: #ffffff; /* Subtle white hover effect for icons */
-        }
-        .footer-strip {
-            bottom: 0;
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
             left: 0;
             width: 100%;
-            background-color: #333; /* Adjust for preferred shade */
-            color: #ccc;
-            font-size: 0.875rem; /* Equivalent to text-sm */
-            font-weight: 500; /* Medium weight */
-            padding: 0.5rem 0;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle top shadow */
-            z-index: 9999; /* Ensures it stays above all elements */
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-green), var(--accent-amber));
         }
-        .animate-fadeIn {
-            animation: fadeIn 1s ease-in-out;
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
+
+        /* Mission & Vision Cards */
+        .mission-vision-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .mission-vision-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-amber));
+            border-radius: 24px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .mission-vision-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .mission-vision-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Process Timeline */
+        .timeline-item {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 12px rgba(25, 135, 84, 0.3);
+            position: relative;
+        }
+
+        .timeline-number::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--accent-amber);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Founders Section */
+        .founder-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .founder-image {
+            position: relative;
+            overflow: hidden;
+            height: 350px;
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .founder-card:hover .founder-image img {
+            transform: scale(1.1);
+        }
+
+        .founder-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+
+        /* Carousel Enhancement */
+        .carousel-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-image {
+            display: none;
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel-image.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
         @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev { left: 20px; }
+        .carousel-nav.next { right: 20px; }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9998;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .fab:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .fab-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .fab-phone {
+            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateX(-50px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
         }
 
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        /* Footer */
+        .footer-enhanced {
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            position: relative;
+        }
+
+        .footer-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-green), var(--accent-amber));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .timeline-item {
+                padding: 1.5rem;
+            }
+
+            .carousel-image {
+                height: 300px;
+            }
+
+            .founder-image {
+                height: 250px;
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50">
+
 <!-- Sidebar -->
-<div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
+<div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-72 z-50">
     <div class="p-6">
-        <!-- Header Section -->
-        <div class="flex items-center justify-between mb-8">
-            <div class="flex items-center">
-                <img th:src="${logoUrl}" alt="Solar Valley Enterprises" class="h-12 mr-2">
-                <span class="text-xl font-bold text-gray-700">Solar Valley Enterprises</span>
+        <div class="flex items-center justify-between mb-10">
+            <div class="flex items-center gap-3">
+                <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 w-12 object-contain">
+                <div>
+                    <span class="text-lg font-bold text-gray-800 block">Solar Valley</span>
+                    <span class="text-xs text-gray-500">Enterprises</span>
+                </div>
             </div>
-            <button id="closeSidebar" class="text-gray-500 hover:text-gray-700">
+            <button id="closeSidebar" class="text-gray-500 hover:text-gray-700 transition">
                 <i class="bi bi-x-lg text-2xl"></i>
             </button>
         </div>
-        <!-- Navigation Links -->
-        <nav class="space-y-4">
-            <!-- Home -->
-            <a href="/"
-               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
-                <i class="bi bi-house-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+
+        <nav class="space-y-2">
+            <a href="/" class="flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition group relative">
+                <i class="bi bi-house-door-fill text-xl mr-4 text-amber-500"></i>
                 <span class="font-medium">Home</span>
             </a>
-            <a href="/about-us"
-               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
-                <i class="bi bi-info-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+            <a href="/about-us" class="flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition group relative">
+                <i class="bi bi-info-circle-fill text-xl mr-4 text-amber-500"></i>
                 <span class="font-medium">About Us</span>
             </a>
-            <a href="/"
-               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
-                <i class="bi bi-battery-charging text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
-                <span class="font-medium">Our Services and Products</span>
+            <a href="/#services" class="flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition group relative">
+                <i class="bi bi-grid-fill text-xl mr-4 text-amber-500"></i>
+                <span class="font-medium">Services</span>
             </a>
-            <a href="#feedback"
-               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
-                <i class="bi bi-chat-dots-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
-                <span class="font-medium">Customer Feedback</span>
+            <a href="/#feedback" class="flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition group relative">
+                <i class="bi bi-chat-square-quote-fill text-xl mr-4 text-amber-500"></i>
+                <span class="font-medium">Testimonials</span>
             </a>
-            <a href="/contact-us"
-               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
-                <i class="bi bi-envelope-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
-                <span class="font-medium">Contact Us</span>
+            <a href="/contact-us" class="flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition group relative">
+                <i class="bi bi-envelope-fill text-xl mr-4 text-amber-500"></i>
+                <span class="font-medium">Contact</span>
             </a>
-            <a href="#faq"
-               class="flex items-center py-2 px-4 text-gray-700 hover:bg-yellow-50 hover:text-yellow-500 rounded-lg transition group">
-                <i class="bi bi-question-circle-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
+            <a href="/#faq" class="flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition group relative">
+                <i class="bi bi-question-circle-fill text-xl mr-4 text-amber-500"></i>
                 <span class="font-medium">FAQs</span>
             </a>
         </nav>
-    </div>
-    <!-- Contact Section -->
-    <div class="mt-10">
-        <h3 class="text-lg font-bold text-gray-700 mb-4">Get in Touch</h3>
-        <div class="space-y-3">
-            <!-- Phone -->
-            <a href="tel:+919111831966" class="flex items-center py-2 px-4 bg-white text-gray-700 rounded-lg shadow-sm hover:shadow-md transition group hover:bg-yellow-50">
-                <i class="bi bi-telephone-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
-                <span class="font-medium">+91 91118 31966</span>
-            </a>
-            <!-- Address -->
-            <div class="flex items-start py-2 px-4 bg-white text-gray-700 rounded-lg shadow-sm hover:shadow-md transition group hover:bg-yellow-50">
-                <i class="bi bi-geo-alt-fill text-xl mr-3 text-yellow-500 group-hover:text-yellow-600"></i>
-                <div>
-                    <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z/data=!4m2!3m1!1s0x0:0x645a7a4f71c7ee4a?sa=X&ved=1t:2428&ictx=111&cshid=1733656743254160"
-                       class="hover:text-yellow-400 transition">UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh, PIN: 453771</a>
-                </div>
+
+        <div class="mt-10 p-4 bg-gradient-to-br from-green-50 to-amber-50 rounded-xl">
+            <h4 class="font-bold text-gray-800 mb-3">Get in Touch</h4>
+            <div class="space-y-3">
+                <a href="tel:+919111831966" class="flex items-center text-sm text-gray-700 hover:text-green-600 transition">
+                    <i class="bi bi-telephone-fill text-green-600 mr-3"></i>
+                    +91 91118 31966
+                </a>
+                <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z/data=!4m2!3m1!1s0x0:0x645a7a4f71c7ee4a?sa=X&ved=1t:2428&ictx=111&cshid=1733656743254160"
+                   class="flex items-start text-sm text-gray-700 hover:text-green-600 transition">
+                    <i class="bi bi-geo-alt-fill text-green-600 mr-3 mt-1"></i>
+                    <span>Indore, Madhya Pradesh</span>
+                </a>
             </div>
         </div>
     </div>
 </div>
 
-
 <!-- Main Content -->
 <div class="min-h-screen">
-    <!-- Header -->
-<!--    <header class="fixed top-0 w-full shadow-sm z-40" style="background-color: #ffdb4d;">-->
-<!--        <div class="container mx-auto px-4 py-3 flex justify-between items-center text-white">-->
-<!--            <button id="openSidebar" class="hover:text-yellow-400">-->
-<!--                <i class="bi bi-list text-2xl"></i>-->
-<!--            </button>-->
-<!--            <div class="flex items-center">-->
-<!--                &lt;!&ndash; Logo &ndash;&gt;-->
-<!--                <img th:src="${logoUrl}" alt="Solar Valley Enterprises" class="h-12 mr-2">-->
-<!--                &lt;!&ndash; Text &ndash;&gt;-->
-<!--                <span class="text-xl font-bold">Solar Valley Enterprises</span>-->
-<!--            </div>-->
-
-<!--            <div class="flex gap-4">-->
-<!--                <a href="#contact" class="bg-yellow-500 px-4 py-2 rounded-lg text-gray-900 hover:bg-yellow-600 shadow-md">Contact Us</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; Contact Icons Section &ndash;&gt;-->
-<!--        <div class="fixed bottom-4 right-4 flex flex-col gap-4">-->
-<!--            &lt;!&ndash; WhatsApp Icon &ndash;&gt;-->
-<!--            <a href="https://wa.me/+919111831966" target="_blank"-->
-<!--               class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">-->
-<!--                <i class="bi bi-whatsapp text-2xl"></i>-->
-<!--            </a>-->
-<!--            &lt;!&ndash; Call Icon &ndash;&gt;-->
-<!--            <a href="tel:+919111831966"-->
-<!--               class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">-->
-<!--                <i class="bi bi-telephone-fill text-2xl"></i>-->
-<!--            </a>-->
-<!--        </div>-->
-<!--    </header>-->
-
-
     <!-- Hero Section -->
-    <section class="bg-gradient-to-tr from-yellow-50 via-white to-yellow-100 text-gray-800 py-12 relative"
-             th:style="'background-image: url(' + ${aboutUsHeader} + '); background-size: cover; background-position: center; background-repeat: no-repeat;'">
-        <button id="openSidebar" class="hover:text-yellow-400">
-            <i class="bi bi-list text-2xl"></i>
+    <section class="about-hero relative min-h-[60vh] flex items-center" th:style="'background-image: url(' + ${aboutUsHeader} + '); background-size: cover; background-position: center;'">
+        <button id="openSidebar" class="absolute top-6 left-6 text-white hover:text-amber-300 transition p-2 z-10">
+            <i class="bi bi-list text-3xl"></i>
         </button>
-        <div class="container mx-auto text-center grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="fade-in-up">
-                <h3 class="text-5xl font-bold counter" data-target="250">0+</h3>
-                <p class="text-lg mt-2">Total Projects Delivered</p>
-            </div>
-            <div class="fade-in-up">
-                <h3 class="text-5xl font-bold counter" data-target="2000">0+</h3>
-                <p class="text-lg mt-2">Happy Customers</p>
-            </div>
-            <div class="fade-in-up">
-                <h3 class="text-5xl font-bold counter" data-target="8">0+</h3>
-                <p class="text-lg mt-2">Years of Experience</p>
-            </div>
-        </div>
-    </section>
-    <div class="fixed bottom-4 right-4 flex flex-col gap-4 z-[9998]">
-        <!-- WhatsApp Icon -->
-        <a href="https://wa.me/+919111831966" target="_blank"
-           class="contact-icon bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
-            <i class="bi bi-whatsapp text-2xl"></i>
-        </a>
-        <!-- Call Icon -->
-        <a href="tel:+919111831966"
-           class="contact-icon bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
-            <i class="bi bi-telephone-fill text-2xl"></i>
-        </a>
-    </div>
 
-
-    <!-- About Section -->
-    <!-- About Us Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-            <!-- About Us Text -->
-            <div class="fade-in-up p-4">
-                <h2 class="text-3xl font-bold mb-4 text-yellow-600">About Us</h2>
-                <p class="text-gray-600 leading-loose">
-                    Solar Valley Enterprises is a leading provider of renewable energy solutions, specializing in cutting-edge solar technology. Our mission is to empower communities with sustainable energy options, contributing to a greener and cleaner future for generations to come. With a team of experienced professionals, we are committed to delivering high-quality solar energy solutions that are both affordable and efficient. Our innovative approach and dedication to customer satisfaction have made us a trusted name in the industry.
+        <div class="container mx-auto px-4 py-24 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6">
+                    <i class="bi bi-building mr-2"></i>Our Story
+                </span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">
+                    About Solar Valley <span class="text-amber-300">Enterprises</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto">
+                    Leading the renewable energy revolution with innovation, integrity, and excellence since 2016
                 </p>
             </div>
-            <!-- Optimized Images -->
-            <div class="fade-in-up carousel flex justify-center items-center">
-                <img alt="Aerial view of solar panels installed on a large field under a clear blue sky"
-                     class="rounded-lg shadow-lg active max-w-[400px] max-h-[300px]"
-                     src="https://storage.googleapis.com/a1aa/image/gtTqFcKi3mLBKRc5hzZLaUxi0b6dWSPqDYYFuCdwdgbZ1qeJA.jpg"/>
-                <img alt="Close-up of solar panels on a rooftop with a bright sun in the background"
-                     class="rounded-lg shadow-lg max-w-[400px] max-h-[300px]"
-                     src="https://storage.googleapis.com/a1aa/image/wuy0e0PWSbzBMyzp5r2DXPZCGpr56E9EfZWY0govFGVqVr6TA.jpg"/>
-                <img alt="Solar panels on a commercial building with a cityscape in the background"
-                     class="rounded-lg shadow-lg max-w-[400px] max-h-[300px]"
-                     src="https://storage.googleapis.com/a1aa/image/tGg6X5AqneQNQKm9xRqmEY3VmeR9bs0efxBVw8W6HXaNWtqPB.jpg"/>
-                <img alt="Solar panels in a desert setting with mountains in the background"
-                     class="rounded-lg shadow-lg max-w-[400px] max-h-[300px]"
-                     th:src="${aboutUsHeader}"/>
+
+            <!-- Statistics -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
+                <div class="stat-card text-center">
+                    <div class="text-5xl font-bold text-green-600 mb-2 counter" data-target="250">0</div>
+                    <div class="text-sm text-gray-600 font-medium">Projects Completed</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-5xl font-bold text-green-600 mb-2 counter" data-target="2000">0</div>
+                    <div class="text-sm text-gray-600 font-medium">Happy Customers</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-5xl font-bold text-green-600 mb-2 counter" data-target="8">0</div>
+                    <div class="text-sm text-gray-600 font-medium">Years of Excellence</div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- Mission and Vision Section -->
-    <section class="py-16 bg-gradient text-gray-800">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="fade-in-up p-6 rounded-lg shadow-lg hover-scale bg-gradient-to-tr from-yellow-50 via-white to-yellow-100">
-                <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
-                <ul class="list-disc list-inside text-gray-800">
-                    <li>Provide high-quality, affordable solar energy solutions.</li>
-                    <li>Promote sustainability and reduce carbon footprints.</li>
-                    <li>Empower communities with renewable energy options.</li>
-                </ul>
-            </div>
-            <div class="fade-in-up p-6 rounded-lg shadow-lg hover-scale bg-gradient-to-tr from-yellow-50 via-white to-yellow-100">
-                <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
-                <ul class="list-disc list-inside text-gray-800">
-                    <li>Become a leader in solar energy innovation.</li>
-                    <li>Make renewable energy accessible to all.</li>
-                    <li>Foster a brighter and sustainable future.</li>
-                </ul>
+
+    <!-- About Content -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="animate-slide-left">
+                    <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">Who We Are</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-3 mb-6">Transforming Energy, One Panel at a Time</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                        With a team of experienced professionals and state-of-the-art technology, we are committed to delivering high-quality solar energy solutions that are both affordable and efficient. Our innovative approach and dedication to customer satisfaction have made us a trusted name in the industry.
+                    </p>
+                    <div class="flex items-center gap-8">
+                        <div>
+                            <div class="text-3xl font-bold text-green-600">ISO Certified</div>
+                            <div class="text-sm text-gray-600">Quality Assurance</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-amber-600">100%</div>
+                            <div class="text-sm text-gray-600">Customer Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate-slide-right">
+                    <div class="carousel-container">
+                        <img th:src="${aboutUsHeader}" alt="Solar Installation" class="carousel-image active">
+                        <img src="https://storage.googleapis.com/a1aa/image/gtTqFcKi3mLBKRc5hzZLaUxi0b6dWSPqDYYFuCdwdgbZ1qeJA.jpg" alt="Solar Panels" class="carousel-image">
+                        <img src="https://storage.googleapis.com/a1aa/image/wuy0e0PWSbzBMyzp5r2DXPZCGpr56E9EfZWY0govFGVqVr6TA.jpg" alt="Solar Energy" class="carousel-image">
+
+                        <button class="carousel-nav prev" onclick="prevImage()">
+                            <i class="bi bi-chevron-left text-2xl text-gray-800"></i>
+                        </button>
+                        <button class="carousel-nav next" onclick="nextImage()">
+                            <i class="bi bi-chevron-right text-2xl text-gray-800"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- Work Process Section -->
-    <section class="py-16 bg-gray-100">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8 fade-in-up text-yellow-600">Our Work Process</h2>
-            <!-- What We Do and How We Do It -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- What We Do Card -->
-                <div class="relative p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up">
-                    <img alt="Solar panels on a residential rooftop with a clear blue sky" class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-30" src="https://storage.googleapis.com/a1aa/image/6FuRh0OUA8aGLtzEhwDmtqkKNkGtjaeEfzi7fRYKRe2U2SsPB.jpg"/>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-bold mb-4">What We Do</h3>
-                        <p class="text-gray-600">
-                            At Solar Valley Enterprises, we specialize in providing comprehensive solar energy solutions. Our services include the design, installation, and maintenance of solar systems for both residential and commercial properties. We are dedicated to helping our clients transition to sustainable energy sources, reducing their carbon footprint, and achieving energy independence.
+
+    <!-- Mission & Vision -->
+    <section class="py-24 bg-gradient-to-br from-green-50 to-amber-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">Our Purpose</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-3">Mission & Vision</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="mission-vision-card">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="bi bi-bullseye text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6">Our Mission</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="bi bi-check-circle-fill text-green-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-lg">Provide high-quality, affordable solar energy solutions to every home and business</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="bi bi-check-circle-fill text-green-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-lg">Promote sustainability and actively reduce carbon footprints in our communities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="bi bi-check-circle-fill text-green-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-lg">Empower communities with accessible renewable energy options</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mission-vision-card">
+                    <div class="w-20 h-20 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="bi bi-eye text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6">Our Vision</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="bi bi-star-fill text-amber-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-lg">Become the leading innovator in solar energy technology across India</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="bi bi-star-fill text-amber-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-lg">Make renewable energy accessible and affordable to every household</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="bi bi-star-fill text-amber-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-lg">Foster a brighter, sustainable future for generations to come</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Process -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">How We Work</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-3 mb-4">Our Proven Process</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">From consultation to commissioning, we ensure excellence at every step</p>
+            </div>
+
+            <!-- What We Do & How We Do It -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="relative overflow-hidden rounded-3xl shadow-xl group">
+                    <img src="https://storage.googleapis.com/a1aa/image/6FuRh0OUA8aGLtzEhwDmtqkKNkGtjaeEfzi7fRYKRe2U2SsPB.jpg" alt="What We Do" class="w-full h-96 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <h3 class="text-3xl font-bold mb-4">What We Do</h3>
+                        <p class="text-lg leading-relaxed">
+                            We specialize in comprehensive solar energy solutions including design, installation, and maintenance for both residential and commercial properties. Our goal is to help clients achieve energy independence while reducing their carbon footprint.
                         </p>
                     </div>
                 </div>
-                <!-- How We Do It Card -->
-                <div class="relative p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up">
-                    <img alt="Technicians installing solar panels on a commercial building" class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-30" src="https://storage.googleapis.com/a1aa/image/BNeCq4P2riT6UqbGTR0itTKniYVU6ZRsAnAHBoNgez5ntE7TA.jpg"/>
-                    <div class="relative z-10">
-                        <h3 class="text-2xl font-bold mb-4">How We Do It</h3>
-                        <p class="text-gray-600">
-                            Our process is designed to ensure efficiency and quality at every step. We begin with a thorough site assessment to determine the best solar solutions for your needs. Our team then conducts a feasibility study to analyze energy output and cost efficiency. We create a customized 3D design of the solar panel layout and provide a detailed project quotation. Once approved, our skilled technicians handle the installation with precision and care. Finally, we commission the system to ensure optimal performance and provide ongoing maintenance support.
+
+                <div class="relative overflow-hidden rounded-3xl shadow-xl group">
+                    <img src="https://storage.googleapis.com/a1aa/image/BNeCq4P2riT6UqbGTR0itTKniYVU6ZRsAnAHBoNgez5ntE7TA.jpg" alt="How We Do It" class="w-full h-96 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <h3 class="text-3xl font-bold mb-4">How We Do It</h3>
+                        <p class="text-lg leading-relaxed">
+                            Our systematic process ensures efficiency and quality. From thorough site assessments and feasibility studies to custom 3D designs and professional installation, we handle every detail with precision and expertise.
                         </p>
                     </div>
                 </div>
             </div>
-            <!-- Work Steps Tree Structure -->
-            <div class="relative mt-12">
-                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-yellow-500 h-full"></div>
+
+            <!-- Timeline -->
+            <div class="max-w-5xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="relative flex items-center justify-end">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">1</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Site Visit</h4>
-                            <p class="text-gray-600">We assess the site for solar panel installation suitability.</p>
+                    <div class="timeline-item">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="timeline-number">1</div>
+                            <h4 class="text-2xl font-bold text-gray-800">Site Visit</h4>
                         </div>
-                        <div class="absolute right-0 transform translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
+                        <p class="text-gray-600 text-lg pl-20">
+                            Comprehensive on-site assessment to evaluate solar panel installation feasibility and optimal placement
+                        </p>
                     </div>
-                    <div class="relative flex items-center justify-start">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">2</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Feasibility Test</h4>
-                            <p class="text-gray-600">Conduct detailed analysis for energy output and cost efficiency.</p>
+
+                    <div class="timeline-item">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="timeline-number">2</div>
+                            <h4 class="text-2xl font-bold text-gray-800">Feasibility Study</h4>
                         </div>
-                        <div class="absolute left-0 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
+                        <p class="text-gray-600 text-lg pl-20">
+                            Detailed analysis of energy output potential, cost efficiency, and return on investment
+                        </p>
                     </div>
-                    <div class="relative flex items-center justify-end">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">3</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">3D Design</h4>
-                            <p class="text-gray-600">Develop a customized 3D model of the solar panel layout.</p>
+
+                    <div class="timeline-item">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="timeline-number">3</div>
+                            <h4 class="text-2xl font-bold text-gray-800">3D Design</h4>
                         </div>
-                        <div class="absolute right-0 transform translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
+                        <p class="text-gray-600 text-lg pl-20">
+                            Custom 3D modeling of solar panel layout tailored to your property's unique specifications
+                        </p>
                     </div>
-                    <div class="relative flex items-center justify-start">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">4</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Quotation</h4>
-                            <p class="text-gray-600">Provide a transparent and detailed project quotation.</p>
+
+                    <div class="timeline-item">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="timeline-number">4</div>
+                            <h4 class="text-2xl font-bold text-gray-800">Quotation</h4>
                         </div>
-                        <div class="absolute left-0 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
+                        <p class="text-gray-600 text-lg pl-20">
+                            Transparent and detailed project quotation with clear breakdown of costs and timelines
+                        </p>
                     </div>
-                    <div class="relative flex items-center justify-end">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">5</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Installation</h4>
-                            <p class="text-gray-600">Install the solar panels with precision and care.</p>
+
+                    <div class="timeline-item">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="timeline-number">5</div>
+                            <h4 class="text-2xl font-bold text-gray-800">Installation</h4>
                         </div>
-                        <div class="absolute right-0 transform translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
+                        <p class="text-gray-600 text-lg pl-20">
+                            Professional installation by certified technicians with precision and adherence to safety standards
+                        </p>
                     </div>
-                    <div class="relative flex items-center justify-start">
-                        <div class="p-6 bg-white rounded-lg shadow-lg hover-scale fade-in-up w-3/4">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex items-center justify-center text-xl font-bold">6</div>
-                            </div>
-                            <h4 class="font-semibold text-lg mb-2 text-yellow-600">Commissioning</h4>
-                            <p class="text-gray-600">Ensure everything is running smoothly and efficiently.</p>
+
+                    <div class="timeline-item">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="timeline-number">6</div>
+                            <h4 class="text-2xl font-bold text-gray-800">Commissioning</h4>
                         </div>
-                        <div class="absolute left-0 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full"></div>
+                        <p class="text-gray-600 text-lg pl-20">
+                            System testing and optimization to ensure peak performance with ongoing maintenance support
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section class="py-24 bg-gradient-to-br from-gray-50 to-green-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">Leadership</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-3 mb-4">Meet Our Founders</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Visionary leaders driving innovation in renewable energy</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img th:src="${founder1}" alt="Jitendra Modi" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-2">Jitendra Modi</h3>
+                        <p class="text-amber-600 font-semibold mb-4 text-lg">CEO & Technical Director</p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            With over 15 years of experience in the tech and solar industry, Jitendra has successfully handled 250+ solar projects nationwide, helping countless businesses and homes transition to renewable energy.
+                        </p>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center gap-2">
+                                <i class="bi bi-briefcase-fill text-green-600"></i>
+                                <span class="text-sm text-gray-600">15+ Years Experience</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="bi bi-award-fill text-amber-600"></i>
+                                <span class="text-sm text-gray-600">250+ Projects</span>
+                            </div>
+                        </div>
+                        <blockquote class="border-l-4 border-green-600 pl-4 italic text-gray-600">
+                            "Empowering the world with sustainable energy solutions is not just our business—it's our responsibility."
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img th:src="${logoUrl}" alt="Hemant Mimrot" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-2">Hemant Mimrot</h3>
+                        <p class="text-amber-600 font-semibold mb-4 text-lg">COO & Innovation Lead</p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Hemant is an innovator with a passion for clean energy solutions. He has spearheaded multiple groundbreaking initiatives, leading the company to receive several sustainability awards and industry recognition.
+                        </p>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="flex items-center gap-2">
+                                <i class="bi bi-lightbulb-fill text-green-600"></i>
+                                <span class="text-sm text-gray-600">Innovation Expert</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="bi bi-graph-up-arrow text-amber-600"></i>
+                                <span class="text-sm text-gray-600">Growth Leader</span>
+                            </div>
+                        </div>
+                        <blockquote class="border-l-4 border-green-600 pl-4 italic text-gray-600">
+                            "Innovation is the key to a brighter, greener future. We're committed to pushing boundaries every day."
+                        </blockquote>
                     </div>
                 </div>
             </div>
@@ -745,123 +735,105 @@
     </section>
 
     <!-- Footer -->
-    <footer class="relative z-[10000] text-white py-16 overflow-hidden">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0">
-<!--            <img th:src="${footer}"-->
-            <img src="https://storage.googleapis.com/a1aa/image/xAidF3elSORMfkWLIfDZ4HE2Uo2STkvkPAQOIIBAEI0RrW1nA.jpg"
-                 alt="Solar Panels Background"
-                 class="w-full h-full object-cover">
-        </div>
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-
-        <!-- Footer Content -->
-        <div class="relative container mx-auto px-6 lg:px-16">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 animate-fadeIn">
-                <!-- About Us Section -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Solar Valley Enterprises</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        Powering a brighter tomorrow with sustainable and cutting-edge solar solutions. Join us in creating a greener future.
+    <footer class="footer-enhanced text-white py-16 relative">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 w-12">
+                        <div>
+                            <h3 class="text-2xl font-bold">Solar Valley</h3>
+                            <span class="text-sm text-gray-400">Enterprises</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Powering a sustainable tomorrow with innovative solar solutions. Join us in creating a greener future.
                     </p>
                 </div>
 
-                <!-- Contact Section -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Contact</h3>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li class="flex items-center">
-                            <i class="bi bi-envelope-fill text-yellow-400 mr-2"></i>
-                            <a href="mailto:info@solarvalley.co.in" class="hover:text-yellow-400 transition">info@solarvalley.co.in</a>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-300 hover:text-amber-400 transition">
+                            <i class="bi bi-envelope-fill text-amber-400 mr-3"></i>
+                            <a href="mailto:info@solarvalley.co.in">info@solarvalley.co.in</a>
                         </li>
-                        <li class="flex items-center">
-                            <i class="bi bi-telephone-fill text-yellow-400 mr-2"></i>
-                            <a href="tel:+919111831966" class="hover:text-yellow-400 transition">+91-9111831966</a>
+                        <li class="flex items-center text-gray-300 hover:text-amber-400 transition">
+                            <i class="bi bi-telephone-fill text-amber-400 mr-3"></i>
+                            <a href="tel:+919111831966">+91 91118 31966</a>
                         </li>
-                        <li class="flex items-center">
-                            <i class="bi bi-geo-alt-fill text-yellow-400 mr-2"></i>
-                            <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z/data=!4m2!3m1!1s0x0:0x645a7a4f71c7ee4a?sa=X&ved=1t:2428&ictx=111&cshid=1733656743254160"
-                               class="hover:text-yellow-400 transition">UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh, pin:453771</a>
+                        <li class="flex items-start text-gray-300">
+                            <i class="bi bi-geo-alt-fill text-amber-400 mr-3 mt-1"></i>
+                            <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z" class="hover:text-amber-400 transition">
+                                UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, Madhya Pradesh, PIN: 453771
+                            </a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Follow Us Section -->
-                <div class="group">
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition duration-300">Follow Us</h3>
-                    <p class="text-gray-300 text-sm mb-4">
-                        Stay connected for the latest updates and offers:
-                    </p>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Follow Us</h4>
+                    <p class="text-gray-300 mb-6">Stay connected for latest updates</p>
                     <div class="flex gap-4">
-                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-instagram"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-linkedin"></i>
                         </a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition text-2xl transform hover:scale-125">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-youtube"></i>
                         </a>
                     </div>
                 </div>
             </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Solar Valley Enterprises. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+</div>
 
-    <div class="bottom-0 left-0 w-full bg-gray-800 bg-opacity-100 text-white py-2 shadow-lg relative z-[10000]">
-        <div class="container mx-auto text-center">
-            <p class="text-gray-300 text-sm font-medium">
-                &copy; 2023 Solar Valley Enterprises. All rights reserved.
-            </p>
-        </div>
-    </div>
+<!-- Floating Action Buttons -->
+<div class="fab-container">
+    <a href="https://wa.me/+919111831966" target="_blank" class="fab fab-whatsapp">
+        <i class="bi bi-whatsapp text-2xl text-white"></i>
+    </a>
+    <a href="tel:+919111831966" class="fab fab-phone">
+        <i class="bi bi-telephone-fill text-2xl text-white"></i>
+    </a>
 </div>
 
 <script>
-
     // Sidebar Toggle
-    const sidebar = document.querySelector('.sidebar');
+    const sidebar = document.getElementById('sidebar');
     const openButton = document.getElementById('openSidebar');
     const closeButton = document.getElementById('closeSidebar');
 
-    openButton.addEventListener('click', () => {
-        sidebar.classList.add('active');
-    });
+    openButton.addEventListener('click', () => sidebar.classList.add('active'));
+    closeButton.addEventListener('click', () => sidebar.classList.remove('active'));
 
-    closeButton.addEventListener('click', () => {
-        sidebar.classList.remove('active');
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', () => sidebar.classList.remove('active'));
     });
-
-    // Close sidebar when clicking a link
-    const sidebarLinks = document.querySelectorAll('.sidebar a');
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-        });
-    });
-
 
     // Counter Animation
     document.addEventListener('DOMContentLoaded', () => {
         const counters = document.querySelectorAll('.counter');
-        const speed = 200; // The lower the slower
+        const speed = 200;
 
         counters.forEach(counter => {
             const updateCount = () => {
                 const target = +counter.getAttribute('data-target');
                 const count = +counter.innerText;
-
-                // Lower inc to slow and higher to slow
                 const inc = target / speed;
 
-                // Check if target is reached
                 if (count < target) {
-                    // Add inc to count and output in counter
                     counter.innerText = Math.ceil(count + inc);
-                    // Call function every ms
                     setTimeout(updateCount, 1);
                 } else {
                     counter.innerText = target + '+';
@@ -872,19 +844,32 @@
         });
     });
 
-    // Carousel Animation
-    document.addEventListener('DOMContentLoaded', () => {
-        const carouselImages = document.querySelectorAll('.carousel img');
-        let currentIndex = 0;
+    // Carousel Functionality
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-image');
 
-        const changeImage = () => {
-            carouselImages[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % carouselImages.length;
-            carouselImages[currentIndex].classList.add('active');
-        };
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+    }
 
-        setInterval(changeImage, 3000); // Change image every 3 seconds
-    });
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+
+    // Auto-advance carousel every 5 seconds
+    setInterval(nextImage, 5000);
+
+    // Initialize first image
+    showImage(currentIndex);
 </script>
+
 </body>
 </html>

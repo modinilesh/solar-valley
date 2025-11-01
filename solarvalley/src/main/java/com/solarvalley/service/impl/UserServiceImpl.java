@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(UserDTO userDTO) throws UserAlreadyExistException {
-        isExistingRecord(userDTO);
+//        isExistingRecord(userDTO);
         User user = modelMapper.map(userDTO, User.class);
         User savedUser = userRepository.save(user);
         LOGGER.info("User created successfully with name: "+ savedUser.getFullName());
