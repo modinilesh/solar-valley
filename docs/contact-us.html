@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact Us - Solar Valley Enterprises</title>
+    <link href="assets/images/logo_solar_valley.svg" rel="icon" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Shared design tokens (from home) */
+        :root {
+            --primary-green: #0F5132;
+            --secondary-green: #198754;
+            --accent-amber: #F59E0B;
+            --light-amber: #FEF3C7;
+            --dark-gray: #1F2937;
+        }
+
+        * { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+        body { background: #f8fafc; color: #1f2937; }
+
+        /* Sidebar (copied/adapted from home) */
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+            background: linear-gradient(180deg,#ffffff 0%, #f9fafb 100%);
+            box-shadow: 4px 0 24px rgba(0,0,0,0.12);
+            width: 18rem;
+        }
+        .sidebar.active { transform: translateX(0); }
+        .sidebar nav a { position: relative; overflow: hidden; display:flex; align-items:center; gap:0.75rem; padding:0.75rem 1rem; border-radius:0.75rem; color:#374151; text-decoration:none; }
+        .sidebar nav a:hover { background:#fff7ed; color: #b45309; }
+        .sidebar nav a::before { content:''; position:absolute; left:0; top:0; height:100%; width:4px; background:var(--accent-amber); transform:scaleY(0); transition:transform .3s ease; }
+        .sidebar nav a:hover::before { transform:scaleY(1); }
+
+        /* Header */
+        .professional-header { transition: all .28s ease; backdrop-filter: blur(6px); }
+        .professional-header.scrolled { background: rgba(255,255,255,0.95); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+
+        /* Hero */
+        .hero-gradient { background: linear-gradient(135deg, rgba(15,81,50,.95) 0%, rgba(25,135,84,.9) 100%); }
+        .hero-content h1 { text-shadow: 2px 2px 6px rgba(0,0,0,0.25); }
+
+        /* Contact cards & form look */
+        .contact-card { transition: all .35s cubic-bezier(.4,0,.2,1); border-radius:1rem; background:white; padding:2rem; box-shadow:0 10px 30px rgba(15,23,42,0.06); }
+        .contact-card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(15,23,42,0.12); }
+
+        .card-icon { width:64px; height:64px; border-radius:999px; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg,#FEF3C7 0%, #FDE68A 100%); margin:0 auto 1rem; transition:all .45s ease; }
+        .contact-card:hover .card-icon { transform: scale(1.08) rotate(4deg); }
+
+        /* Form */
+        .form-input { border: 2px solid #e6e7ea; padding: .75rem 1rem; border-radius: .75rem; width:100%; transition: all .25s ease; }
+        .form-input:focus { outline:none; border-color: var(--accent-amber); box-shadow: 0 0 0 6px rgba(245,158,11,0.08); transform: translateY(-2px); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+            color:white; padding:.9rem 1.25rem; border-radius: .75rem; display:inline-flex; align-items:center; gap:.5rem; box-shadow:0 6px 20px rgba(25,135,84,0.25);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(25,135,84,0.32); }
+
+        .btn-ghost { background: white; border: 2px solid var(--secondary-green); color:var(--secondary-green); padding:.9rem 1.25rem; border-radius:.75rem; }
+        .btn-ghost:hover { background: var(--secondary-green); color: white; transform: translateY(-2px); }
+
+        /* Footer from home */
+        .footer-enhanced { background: linear-gradient(135deg, #1F2937 0%, #111827 100%); color: #e6eef0; padding: 4rem 0; position: relative; }
+        .footer-enhanced::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, var(--secondary-green), var(--accent-amber), #0ea5e9); }
+
+        /* FABs */
+        .fab-container { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index:9999; display:flex; flex-direction:column; gap:1rem; }
+        .fab { width:60px; height:60px; border-radius:999px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 22px rgba(2,6,23,0.12); cursor:pointer; }
+        .fab-whatsapp { background: linear-gradient(135deg,#25D366 0%, #128C7E 100%); color:white; }
+        .fab-phone { background: linear-gradient(135deg,#3B82F6 0%, #1D4ED8 100%); color:white; }
+
+        /* Map overlay style */
+        .map-container { position:relative; overflow:hidden; border-radius:1rem; min-height:420px; box-shadow:0 10px 30px rgba(2,6,23,0.08); }
+
+        /* Animations (simple fade/slide) */
+        @keyframes fadeInUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+        .animate-fadeInUp { animation: fadeInUp .7s ease forwards; opacity:0; }
+        .delay-100 { animation-delay:.1s; }
+        .delay-200 { animation-delay:.2s; }
+        .delay-300 { animation-delay:.3s; }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .sidebar { width: 16rem; }
+            .fab { width: 50px; height:50px; }
+        }
+    </style>
+    <link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+<div data-component="site-header"></div>
+
+<!-- Hero (styled like homepage but with contact text) -->
+<section class="relative min-h-[60vh] flex items-center hero-gradient text-white">
+    <div class="absolute inset-0" style="background-image: url('assets/images/contactUsHeader.gif'); background-size:cover; background-position:center; filter:brightness(.45)"></div>
+
+    <div class="container mx-auto px-4 py-28 relative z-10 text-center">
+        <img src="assets/images/logo_solar_valley.svg" alt="Solar Valley Logo" class="w-28 mx-auto mb-6">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-3 animate-fadeInUp delay-100">Get In Touch</h1>
+        <p class="text-lg md:text-xl text-amber-200 mb-6 animate-fadeInUp delay-200">We're here to power your solar journey â€” reach out and let's discuss your project.</p>
+
+        <div class="flex gap-4 justify-center animate-fadeInUp delay-300">
+            <a href="tel:+919111831966" class="btn-ghost inline-flex items-center">
+                <i class="bi bi-telephone-fill mr-2"></i> Call Now
+            </a>
+            <a href="mailto:info@solarvalley.co.in" class="btn-primary inline-flex items-center">
+                <i class="bi bi-envelope-fill mr-2"></i> Email Us
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact information cards -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Multiple Ways to Reach Us</h2>
+            <p class="text-gray-600">Choose your preferred method of communication</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="contact-card animate-fadeInUp delay-100">
+                <div class="card-icon"><i class="bi bi-envelope-fill text-2xl text-amber-700"></i></div>
+                <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Email Us</h3>
+                <p class="text-gray-600 mb-3 text-center">Send us your inquiries anytime</p>
+                <a class="block text-center text-secondary-green hover:text-green-700 font-semibold text-lg text-[#0f5132]" href="mailto:info@solarvalley.co.in">info@solarvalley.co.in</a>
+            </div>
+
+            <div class="contact-card animate-fadeInUp delay-200">
+                <div class="card-icon"><i class="bi bi-telephone-fill text-2xl text-amber-700"></i></div>
+                <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Call Us</h3>
+                <p class="text-gray-600 mb-3 text-center">Speak directly with our team</p>
+                <a class="block text-center text-lg font-semibold text-[#0f5132]" href="tel:+919111831966">+91 9111831966</a>
+            </div>
+
+            <div class="contact-card animate-fadeInUp delay-300">
+                <div class="card-icon"><i class="bi bi-geo-alt-fill text-2xl text-amber-700"></i></div>
+                <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Visit Us</h3>
+                <p class="text-gray-600 mb-3 text-center">Come see our showroom</p>
+                <p class="text-gray-700 text-center text-sm leading-relaxed">UGF 08, Galleria, Ansal Town, Talawali Chanda, Indore, MP 453771</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact form + Map (form preserves original contact-us client-side behavior) -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
+            <!-- Form -->
+            <div id="contactFormSection" class="animate-fadeInUp delay-100">
+                <div class="p-8 rounded-2xl bg-gradient-to-br from-yellow-50 to-white shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Send Us a Message</h3>
+                    <p class="text-gray-700 mb-6">Fill out the form and we'll get back to you within 24 hours</p>
+
+                    <!-- Email-only form: no application database is used. -->
+                    <form action="https://formsubmit.co/info@solarvalley.co.in" method="POST" class="email-contact-form space-y-6">
+                        <input type="hidden" name="_subject" value="New quote request - Solar Valley Enterprises">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_autoresponse" value="Thank you! We have received your request. A Solar Valley specialist will contact you within 24 hours.">
+                        <input type="hidden" name="_next" value="">
+                        <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Full Name *</label>
+                            <input type="text" name="fullName" required
+                                   class="w-full px-4 py-3 rounded-xl"
+                                   placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email Address *</label>
+                            <input type="email" name="email" required
+                                   class="w-full px-4 py-3 rounded-xl"
+                                   placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Phone Number *</label>
+                            <input type="tel" name="phoneNumber" required
+                                   class="w-full px-4 py-3 rounded-xl"
+                                   placeholder="+91 98765 43210">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Your Message</label>
+                            <textarea name="message" rows="4"
+                                      class="w-full px-4 py-3 rounded-xl"
+                                      placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit"
+                                class="btn-primary w-full py-4 rounded-xl text-white font-semibold text-lg">
+                            Send Message <i class="bi bi-arrow-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="animate-fadeInUp delay-200">
+                <div class="map-container">
+                    <iframe width="100%" height="100%" frameborder="0" style="border:0; min-height:420px; border-radius:1rem;"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14712.708078440517!2d75.9175317!3d22.7959037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39631df57fb2e9b3%3A0x645a7a4f71c7ee4a!2sSOLAR%20VALLEY%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1734282164240!5m2!1sen!2sin"
+                            allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why choose us (kept for consistency with home) -->
+<section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-3xl font-bold">Why Choose Solar Valley?</h2>
+            <p class="text-gray-600">Trusted partner for solar energy solutions</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-award-fill text-2xl text-blue-900"></i>
+                </div>
+                <h4 class="font-bold">15+ Years Experience</h4>
+                <p class="text-sm text-gray-600">Industry expertise you can trust</p>
+            </div>
+
+            <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-people-fill text-2xl text-blue-900"></i>
+                </div>
+                <h4 class="font-bold">Expert Team</h4>
+                <p class="text-sm text-gray-600">Certified solar professionals</p>
+            </div>
+
+            <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-shield-check text-2xl text-blue-900"></i>
+                </div>
+                <h4 class="font-bold">Quality Assured</h4>
+                <p class="text-sm text-gray-600">Premium products guaranteed</p>
+            </div>
+
+            <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-headset text-2xl text-blue-900"></i>
+                </div>
+                <h4 class="font-bold">24/7 Support</h4>
+                <p class="text-sm text-gray-600">Always here to help</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div data-component="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/contact.js"></script>
+</body>
+</html>

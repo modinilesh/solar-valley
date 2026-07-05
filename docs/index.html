@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Valley Enterprises - Renewable Energy Solutions</title>
+    <link href="assets/images/logo_solar_valley.svg" rel="icon" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-green: #0F5132;
+            --secondary-green: #198754;
+            --accent-amber: #F59E0B;
+            --light-amber: #FEF3C7;
+            --sky-blue: #0EA5E9;
+            --dark-gray: #1F2937;
+        }
+
+        /* Professional Sidebar */
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar nav a {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar nav a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--accent-amber);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar nav a:hover::before {
+            transform: scaleY(1);
+        }
+
+        /* Professional Header */
+        .professional-header {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .professional-header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Hero Section Enhancement */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15, 81, 50, 0.95) 0%, rgba(25, 135, 84, 0.9) 100%);
+        }
+
+        .hero-content h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        /* Professional Cards */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-amber), var(--secondary-green));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-amber);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card .icon-wrapper {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .icon-wrapper {
+            transform: rotate(5deg) scale(1.1);
+            box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Statistics Section */
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            border-left: 4px solid var(--accent-amber);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--secondary-green);
+        }
+
+        /* Testimonial Cards */
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-amber);
+        }
+
+        /* Contact Form Enhancement */
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-amber);
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+            outline: none;
+        }
+
+        /* CTA Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(25, 135, 84, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(25, 135, 84, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--secondary-green);
+            color: var(--secondary-green);
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-green);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9998;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .fab:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .fab-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .fab-phone {
+            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+        }
+
+        /* Partner Logos */
+        .partner-logo {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.15);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+
+        /* Scroll Indicators */
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: var(--accent-amber);
+            border-radius: 10px;
+        }
+
+        /* Trust Badges */
+        .trust-badge {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .trust-badge:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        /* About Section Image */
+        .about-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 81, 50, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-image-container:hover::after {
+            opacity: 1;
+        }
+
+        /* FAQ Enhancement */
+        .faq-item {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-amber);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-toggle {
+            position: relative;
+        }
+
+        .faq-toggle::after {
+            content: '+';
+            position: absolute;
+            right: 1rem;
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle.active::after {
+            content: 'âˆ’';
+            transform: rotate(180deg);
+        }
+
+        /* Footer Enhancement */
+        .footer-enhanced {
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-green), var(--accent-amber), var(--sky-blue));
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .fab-container {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .fab {
+                width: 50px;
+                height: 50px;
+            }
+
+            .service-card .icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+    <link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+<div data-component="site-header"></div>
+
+<!-- Main Content -->
+<div class="min-h-screen">
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center bg-cover bg-center"
+             style="background-image: url('assets/images/hero.gif');">
+        <div class="hero-gradient absolute inset-0"></div>
+
+        <div class="container mx-auto px-4 py-32 relative z-10">
+            <div class="max-w-4xl mx-auto text-center hero-content">
+                <div class="animate-fade-in-up">
+                    <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6">
+                        <i class="bi bi-sun mr-2"></i>Trusted Solar Solutions Since 2016
+                    </span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 animate-fade-in-up delay-100">
+                    Powering Tomorrow with
+                    <span class="block text-amber-300">Solar Innovation</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-gray-100 mb-10 max-w-2xl mx-auto animate-fade-in-up delay-200">
+                    Complete renewable energy solutions for homes and businesses. Join 2000+ satisfied customers in the
+                    green revolution.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+                    <a href="#services"
+                       class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-lg inline-flex items-center justify-center">
+                        Explore Services <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contact"
+                       class="btn-secondary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center">
+                        <i class="bi bi-telephone-fill mr-2"></i> Contact Us
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-16 max-w-3xl mx-auto animate-fade-in-up delay-400">
+
+                    <div class="stat-card p-4 sm:p-6 rounded-2xl bg-white shadow text-center">
+                        <div class="text-4xl sm:text-5xl font-bold text-green-600 mb-2 counter" data-target="250">250+</div>
+                        <div class="text-xs sm:text-sm text-gray-600 font-medium">Projects Completed</div>
+                    </div>
+
+                    <div class="stat-card p-4 sm:p-6 rounded-2xl bg-white shadow text-center">
+                        <div class="text-4xl sm:text-5xl font-bold text-green-600 mb-2 counter" data-target="2000">2000+</div>
+                        <div class="text-xs sm:text-sm text-gray-600 font-medium">Happy Customers</div>
+                    </div>
+
+                    <div class="stat-card p-4 sm:p-6 rounded-2xl bg-white shadow texft-center">
+                        <div class="text-4xl sm:text-5xl font-bold text-green-600 mb-2 counter" data-target="8">8+</div>
+                        <div class="text-xs sm:text-sm text-gray-600 font-medium">Years of Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">What We Offer</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-3 mb-4">Our Premium Services</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive solar solutions tailored to meet your
+                    energy needs</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card p-8 rounded-2xl">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-sun text-4xl text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Solar Installation</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Expert installation of high-efficiency solar panels for residential and commercial properties
+                        with warranty.
+                    </p>
+                </div>
+
+                <div class="service-card p-8 rounded-2xl">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-tools text-4xl text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Maintenance & Support</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Regular maintenance and 24/7 support services to ensure optimal system performance year-round.
+                    </p>
+                </div>
+
+                <div class="service-card p-8 rounded-2xl">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-battery-charging text-4xl text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Inverters & Batteries</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Premium quality inverters and energy storage solutions from leading brands for uninterrupted
+                        power.
+                    </p>
+                </div>
+
+                <div class="service-card p-8 rounded-2xl">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-camera-video text-4xl text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">CCTV Solutions</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Advanced security systems with high-definition CCTV installation and monitoring solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gradient-to-br from-gray-50 to-green-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">About Solar Valley</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-3 mb-6">Pioneering Sustainable Energy
+                        Solutions</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        Solar Valley Enterprises is a leading provider of renewable energy solutions, specializing in
+                        cutting-edge solar technology. Our mission is to empower communities with sustainable energy
+                        options.
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                        With over 8 years of experience and 250+ successful projects, we've established ourselves as a
+                        trusted partner in the renewable energy sector, serving 2000+ satisfied customers across the
+                        region.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="trust-badge">
+                            <i class="bi bi-shield-check text-3xl text-green-600 mb-2"></i>
+                            <div class="font-bold text-gray-800">25-Year Warranty</div>
+                            <div class="text-sm text-gray-600">On All Panels</div>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="bi bi-people text-3xl text-green-600 mb-2"></i>
+                            <div class="font-bold text-gray-800">Expert Team</div>
+                            <div class="text-sm text-gray-600">Certified Professionals</div>
+                        </div>
+                    </div>
+
+                    <a href="about-us.html"
+                       class="btn-primary px-8 py-3 rounded-full text-white font-semibold inline-flex items-center">
+                        Learn More <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="about-image-container">
+                        <img src="assets/images/aboutUs1.jpg" alt="Solar Installation" class="w-full h-auto rounded-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="feedback" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">Client Stories</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-3 mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Real experiences from our valued clients</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="testimonial-card p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-bold text-xl mr-4">
+                            N
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Nikhil Gothwal</h4>
+                            <div class="text-amber-500 text-sm">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        "A trusted name in Solar Industry. Well known for their high-quality solar panels that are
+                        efficient and durable. A worthwhile investment for long-term renewable energy."
+                    </p>
+                </div>
+
+                <div class="testimonial-card p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-xl mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Mahesh Bharti</h4>
+                            <div class="text-amber-500 text-sm">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        "Excellent quality product and service. Performance of solar panel is good and running
+                        satisfactorily without any issues. Highly recommended!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card p-8 bg-gradient-to-br from-green-50 to-amber-50 border-2 border-amber-200">
+                    <div class="text-center">
+                        <i class="bi bi-star text-5xl text-amber-500 mb-4"></i>
+                        <h4 class="font-bold text-gray-800 text-xl mb-3">Share Your Experience</h4>
+                        <p class="text-gray-600 mb-6">Help others make informed decisions about solar energy</p>
+                        <a href="https://www.google.com/search?q=SOLAR+VALLEY+ENTERPRISES&ludocid=7231226633326685770"
+                           target="_blank"
+                           class="btn-primary px-6 py-3 rounded-full text-white font-medium inline-block">
+                            Write a Review
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section id="partners" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">Trusted Brands</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mt-3">Our Associated Partners</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
+                <div class="partner-logo flex items-center justify-center p-4">
+                    <img src="assets/images/adani.png" alt="Partner" class="max-h-16 w-auto">
+                </div>
+                <div class="partner-logo flex items-center justify-center p-4">
+                    <img src="assets/images/sungrow.png" alt="Partner" class="max-h-16 w-auto">
+                </div>
+                <div class="partner-logo flex items-center justify-center p-4">
+                    <img src="assets/images/vgaurd.png" alt="Partner" class="max-h-16 w-auto">
+                </div>
+                <div class="partner-logo flex items-center justify-center p-4">
+                    <img src="assets/images/tata.jpg" alt="Partner" class="max-h-16 w-auto">
+                </div>
+                <div class="partner-logo flex items-center justify-center p-4">
+                    <img src="assets/images/luminous.jpg" alt="Partner" class="max-h-16 w-auto">
+                </div>
+                <div class="partner-logo flex items-center justify-center p-4">
+                    <img src="assets/images/havells.jpg" alt="Partner" class="max-h-16 w-auto">
+                </div>
+                <div class="partner-logo flex items-center justify-center p-4">
+                    <img src="assets/images/waree.webp" alt="Partner" class="max-h-16 w-auto">
+                </div>
+                <div class="partner-logo flex items-center justify-center p-4">
+                    <img src="assets/images/vikram.webp" alt="Partner" class="max-h-16 w-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & FAQ -->
+    <section id="contact-faq" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div id="contact" class="contact-form p-10">
+                    <div class="text-center mb-8">
+                        <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">Get Started</span>
+                        <h2 class="text-4xl font-bold text-gray-800 mt-3 mb-4">Request a Free Quote</h2>
+                        <p class="text-gray-600">Fill out the form and we'll get back to you within 24 hours</p>
+                    </div>
+
+                    <form action="https://formsubmit.co/info@solarvalley.co.in" method="POST" class="email-contact-form space-y-6">
+                        <input type="hidden" name="_subject" value="New quote request - Solar Valley Enterprises">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_autoresponse" value="Thank you! We have received your request. A Solar Valley specialist will contact you within 24 hours.">
+                        <input type="hidden" name="_next" value="">
+                        <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Full Name *</label>
+                            <input type="text" name="fullName" required
+                                   class="w-full px-4 py-3 rounded-xl"
+                                   placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email Address *</label>
+                            <input type="email" name="email" required
+                                   class="w-full px-4 py-3 rounded-xl"
+                                   placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Phone Number *</label>
+                            <input type="tel" name="phoneNumber" required
+                                   class="w-full px-4 py-3 rounded-xl"
+                                   placeholder="+91 98765 43210">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Your Message</label>
+                            <textarea name="message" rows="4"
+                                      class="w-full px-4 py-3 rounded-xl"
+                                      placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit"
+                                class="btn-primary w-full py-4 rounded-xl text-white font-semibold text-lg">
+                            Send Message <i class="bi bi-arrow-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- FAQ -->
+                <div id="faq" class="space-y-4">
+                    <div class="mb-8">
+                        <span class="text-green-600 font-semibold text-sm uppercase tracking-wider">Common Questions</span>
+                        <h2 class="text-4xl font-bold text-gray-800 mt-3 mb-4">Frequently Asked Questions</h2>
+                    </div>
+
+                    <div class="faq-item p-6">
+                        <button class="faq-toggle w-full text-left font-semibold text-gray-800 text-lg">
+                            How long does solar installation take?
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600 pl-6">
+                            Typical residential installations take 1-3 days, depending on system size and complexity. We
+                            ensure minimal disruption to your daily routine.
+                        </div>
+                    </div>
+
+                    <div class="faq-item p-6">
+                        <button class="faq-toggle w-full text-left font-semibold text-gray-800 text-lg">
+                            What maintenance is required?
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600 pl-6">
+                            Regular cleaning and annual inspections are recommended. We offer comprehensive maintenance
+                            packages to keep your system running at peak efficiency.
+                        </div>
+                    </div>
+
+                    <div class="faq-item p-6">
+                        <button class="faq-toggle w-full text-left font-semibold text-gray-800 text-lg">
+                            What warranty is included?
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600 pl-6">
+                            Most solar panels come with a 25-year performance warranty. Inverters typically have 5-10
+                            year warranties. We also provide workmanship warranties.
+                        </div>
+                    </div>
+
+                    <div class="faq-item p-6">
+                        <button class="faq-toggle w-full text-left font-semibold text-gray-800 text-lg">
+                            Do solar panels work on cloudy days?
+                        </button>
+                        <div class="faq-content hidden mt-4 text-gray-600 pl-6">
+                            Yes! Modern solar panels are designed to work efficiently even in diffused sunlight, though
+                            output may be slightly reduced compared to sunny days.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div data-component="site-footer"></div>
+</div>
+
+<script src="assets/js/site.js"></script>
+
+</body>
+</html>
