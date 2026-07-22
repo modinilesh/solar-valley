@@ -1,0 +1,64 @@
+<button id="sidebarBackdrop" type="button" class="sidebar-backdrop" aria-label="Close navigation" tabindex="-1"></button>
+
+<aside id="sidebar" class="sidebar fixed top-0 left-0 h-full w-72 z-50" aria-label="Site navigation" aria-hidden="true">
+    <div class="p-6">
+        <div class="flex items-center justify-between mb-10">
+            <a href="index.html" class="flex items-center gap-3" aria-label="Solar Valley home">
+                <img src="assets/images/logo_solar_valley.svg" alt="Solar Valley" class="h-12 w-12 object-contain">
+                <span>
+                    <span class="text-lg font-bold text-gray-800 block">Solar Valley</span>
+                    <span class="text-xs text-gray-500">Enterprises</span>
+                </span>
+            </a>
+            <button id="closeSidebar" type="button" class="text-gray-500 hover:text-gray-700 transition" aria-label="Close navigation">
+                <i class="bi bi-x-lg text-2xl"></i>
+            </button>
+        </div>
+
+        <nav class="space-y-2">
+            <a href="index.html" data-nav-page="index.html" class="site-nav-link flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition">
+                <i class="bi bi-house-door-fill text-xl mr-4 text-amber-500"></i>Home
+            </a>
+            <a href="about-us.html" data-nav-page="about-us.html" class="site-nav-link flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition">
+                <i class="bi bi-info-circle-fill text-xl mr-4 text-amber-500"></i>About Us
+            </a>
+            <a href="index.html#services" class="site-nav-link flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition">
+                <i class="bi bi-grid-fill text-xl mr-4 text-amber-500"></i>Services
+            </a>
+            <a href="index.html#feedback" class="site-nav-link flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition">
+                <i class="bi bi-chat-square-quote-fill text-xl mr-4 text-amber-500"></i>Testimonials
+            </a>
+            <a href="contact-us.html" data-nav-page="contact-us.html" class="site-nav-link flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition">
+                <i class="bi bi-envelope-fill text-xl mr-4 text-amber-500"></i>Contact
+            </a>
+            <a href="index.html#faq" class="site-nav-link flex items-center py-3 px-4 text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded-xl transition">
+                <i class="bi bi-question-circle-fill text-xl mr-4 text-amber-500"></i>FAQs
+            </a>
+        </nav>
+
+        <div class="mt-10 p-4 bg-gradient-to-br from-green-50 to-amber-50 rounded-xl">
+            <h4 class="font-bold text-gray-800 mb-3">Get in Touch</h4>
+            <a href="tel:+919111831966" class="flex items-center text-sm text-gray-700 hover:text-green-600 transition mb-3">
+                <i class="bi bi-telephone-fill text-green-600 mr-3"></i>+91 91118 31966
+            </a>
+            <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z" class="flex items-start text-sm text-gray-700 hover:text-green-600 transition">
+                <i class="bi bi-geo-alt-fill text-green-600 mr-3 mt-1"></i>Indore, Madhya Pradesh
+            </a>
+        </div>
+    </div>
+</aside>
+
+<header id="mainHeader" class="professional-header fixed top-0 w-full z-40">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <button id="openSidebar" type="button" class="text-gray-800 hover:text-green-600 transition p-2" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">
+                <i class="bi bi-list text-3xl"></i>
+            </button>
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="text-lg sm:text-xl font-bold text-gray-800 whitespace-nowrap">Solar Valley Enterprises</span>
+                <img src="assets/images/logo_solar_valley.svg" alt="" class="h-10 w-10 object-contain">
+            </a>
+            <a href="contact-us.html#contactFormSection" class="btn-primary px-5 py-2.5 rounded-full text-white font-medium hidden md:block">Get Quote</a>
+        </div>
+    </div>
+</header>
