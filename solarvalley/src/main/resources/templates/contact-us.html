@@ -150,7 +150,7 @@
                 </a>
                 <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z"
                    class="flex items-start text-sm text-gray-700">
-                    <i class="bi bi-geo-alt-fill text-green-600 mr-3 mt-1"></i> Indore, Madhya Pradesh
+                    <i class="bi bi-geo-alt-fill text-green-600 mr-3 mt-1"></i> UGF 10, Galleria, Ansal Town, Indore, MP 453771
                 </a>
             </div>
         </div>
@@ -217,9 +217,9 @@
                 <div class="card-icon"><i class="bi bi-telephone-fill text-2xl text-amber-700"></i></div>
                 <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Call Us</h3>
                 <p class="text-gray-600 mb-3 text-center">Speak directly with our team</p>
-                <a class="block text-center text-lg font-semibold text-[#0f5132]" href="tel:+919111831966">+91 9111831966</a>
-                <a class="block text-center text-lg font-semibold text-[#0f5132]" href="tel:+918818878679">+91 8818878679</a>
-                <a class="block text-center text-lg font-semibold text-[#0f5132]" href="tel:+919770661678">+91 9770661678</a>
+                <a class="block text-center text-lg font-semibold text-[#0f5132]" href="tel:+919111831966">+91 91118 31966</a>
+                <a class="block text-center text-lg font-semibold text-[#0f5132]" href="tel:+918818878679">+91 88188 78679</a>
+                <a class="block text-center text-lg font-semibold text-[#0f5132]" href="tel:+919770661678">+91 97706 61678</a>
             </div>
 
             <div class="contact-card animate-fadeInUp delay-300">
@@ -335,7 +335,7 @@
 <!-- Footer (same as homepage) -->
 <footer class="footer-enhanced">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div>
                 <div class="flex items-center gap-3 mb-6">
                     <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 w-12">
@@ -376,6 +376,16 @@
             </div>
 
             <div>
+                <h4 class="text-xl font-bold text-white mb-6">Quick Links</h4>
+                <nav class="grid gap-3 text-gray-300">
+                    <a href="/" class="hover:text-amber-400 transition">Home</a>
+                    <a href="/about-us" class="hover:text-amber-400 transition">About Us</a>
+                    <a href="/#services" class="hover:text-amber-400 transition">Services</a>
+                    <a href="/contact-us" class="hover:text-amber-400 transition">Contact</a>
+                </nav>
+            </div>
+
+            <div>
                 <h4 class="text-xl font-bold text-white mb-6">Follow Us</h4>
                 <p class="text-gray-300 mb-6">Stay connected for latest updates</p>
                 <div class="flex gap-3">
@@ -389,7 +399,7 @@
         </div>
 
         <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Solar Valley Enterprises. All rights reserved.</p>
+            <p>&copy; <span data-current-year></span> Solar Valley Enterprises. All rights reserved.</p>
         </div>
     </div>
 </footer>
@@ -445,6 +455,11 @@
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         revealObserver.observe(el);
+    });
+
+    // Current year in footer
+    document.querySelectorAll('[data-current-year]').forEach(node => {
+        node.textContent = new Date().getFullYear();
     });
 </script>
 </body>

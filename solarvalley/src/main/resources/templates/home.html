@@ -458,10 +458,10 @@
                     <i class="bi bi-telephone-fill text-green-600 mr-3"></i>
                     +91 97706 61678
                 </a>
-                <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z/data=!4m2!3m1!1s0x0:0x645a7a4f71c7ee4a?sa=X&ved=1t:2428&ictx=111&cshid=1733656743254160"
+                <a href="https://www.google.com/maps/place/SOLAR+VALLEY+ENTERPRISES/@22.7959037,75.9175317,15z"
                    class="flex items-start text-sm text-gray-700 hover:text-green-600 transition">
                     <i class="bi bi-geo-alt-fill text-green-600 mr-3 mt-1"></i>
-                    <span>Indore, Madhya Pradesh</span>
+                    <span>UGF 10, Galleria, Ansal Town, Indore, MP 453771</span>
                 </a>
             </div>
         </div>
@@ -841,7 +841,7 @@
     <!-- Footer -->
     <footer class="footer-enhanced text-white py-16 relative">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
                         <img th:src="${logoUrl}" alt="Solar Valley" class="h-12 w-12">
@@ -886,32 +886,42 @@
                 </div>
 
                 <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <nav class="grid gap-3 text-gray-300">
+                        <a href="/" class="hover:text-amber-400 transition">Home</a>
+                        <a href="/about-us" class="hover:text-amber-400 transition">About Us</a>
+                        <a href="/#services" class="hover:text-amber-400 transition">Services</a>
+                        <a href="/contact-us" class="hover:text-amber-400 transition">Contact</a>
+                    </nav>
+                </div>
+
+                <div>
                     <h4 class="text-xl font-bold mb-6">Follow Us</h4>
                     <p class="text-gray-300 mb-6">Stay connected for latest updates</p>
-                    <div class="flex gap-4">
+                    <div class="flex gap-3">
                         <a href="https://www.facebook.com/Solarvalleyindore" target="_blank" rel="noopener noreferrer"
                            aria-label="Follow us on Facebook"
-                           class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-facebook"></i>
                         </a>
                         <a href="https://www.instagram.com/Solarvalleyindore" target="_blank" rel="noopener noreferrer"
                            aria-label="Follow us on Instagram"
-                           class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-instagram"></i>
                         </a>
                         <a href="https://www.pinterest.com/Solarvalleyindore" target="_blank" rel="noopener noreferrer"
                            aria-label="Follow us on Pinterest"
-                           class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-pinterest"></i>
                         </a>
                         <a href="https://www.youtube.com/@Solarvalleyindore" target="_blank" rel="noopener noreferrer"
                            aria-label="Follow us on YouTube"
-                           class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-youtube"></i>
                         </a>
                         <a href="https://x.com/Solarvalley_X" target="_blank" rel="noopener noreferrer"
                            aria-label="Follow us on X"
-                           class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-amber-400 hover:text-gray-900 transition">
                             <i class="bi bi-twitter-x"></i>
                         </a>
                     </div>
@@ -919,7 +929,7 @@
             </div>
 
             <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Solar Valley Enterprises. All rights reserved.</p>
+                <p>&copy; <span data-current-year></span> Solar Valley Enterprises. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -981,6 +991,11 @@
         const messages = document.querySelectorAll('[th\\:if]');
         messages.forEach(msg => msg.style.display = 'none');
     }, 5000);
+
+    // Current year in footer
+    document.querySelectorAll('[data-current-year]').forEach(node => {
+        node.textContent = new Date().getFullYear();
+    });
 </script>
 
 </body>
